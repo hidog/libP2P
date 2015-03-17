@@ -16,9 +16,24 @@
     <ClInclude Include="..\src\libP2P.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\config.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\socket.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\log.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\libP2P.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\socket.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\log.c">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
