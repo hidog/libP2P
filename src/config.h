@@ -13,6 +13,7 @@
 // socket
 #ifdef _WIN32
 #include <WinSock2.h>
+#include <iphlpapi.h>   //For SendARP
 #else
 #error need maintain.
 #endif
@@ -27,6 +28,9 @@
 #	endif
 #endif
 
+
+// typedef 
+typedef struct in_addr	P2P_in_addr;
 
 
 #endif
