@@ -2,7 +2,10 @@
 #include "config.h"
 #include "log.h"
 
-#pragma comment (lib, "Ws2_32.lib")
+#pragma comment ( lib, "Ws2_32.lib" )
+
+
+
 
 /***********************************************************
 	P2P_socket_init
