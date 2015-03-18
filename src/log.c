@@ -34,7 +34,7 @@ int		P2P_log_file( const char *format, ... )
 	FILE	*p;
 	va_list args;
 
-	return; // if you want log to file, mark this line.
+	return 0; // if you want log to file, mark this line.
 
 	// get date.
 	P2P_get_date(date);

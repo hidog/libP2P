@@ -31,6 +31,12 @@
     <ClInclude Include="..\src\socket\socket.h">
       <Filter>src\socket</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\uuid.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\data.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\libP2P.c">
@@ -44,6 +50,12 @@
     </ClCompile>
     <ClCompile Include="..\src\socket\socket.c">
       <Filter>src\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\uuid.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\data.c">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

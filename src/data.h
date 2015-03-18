@@ -1,21 +1,23 @@
-#ifndef LIBP2P_UUID_H
-#define LIBP2P_UUID_H
+#ifndef LIBP2P_DATA_H
+#define LIBP2P_DATA_H
 
-#include "config.h"
-
+#include "uuid.h"
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ struct ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-typedef struct	UUID
+typedef struct	GlobalData
 {
-	uint8_t		uuid[16];
-} UUID_s;
+
+	UUID_s	my_uuid;
+
+} GlobalData_s ;
 
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void	P2P_uuid_generate( UUID_s *p_uuid ); 
+int		P2P_data_init();
+
 
 
 

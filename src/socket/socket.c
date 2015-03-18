@@ -13,6 +13,7 @@
 ************************************************************/
 int P2P_socket_init()
 {
+
 #ifdef _WIN32
 	// Initialize Winsock
 	int ret = 0;
@@ -25,6 +26,7 @@ int P2P_socket_init()
 		return 1;
     }
 #endif
+
 	return	0;
 }
 

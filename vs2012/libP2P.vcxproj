@@ -83,16 +83,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\config.h" />
+    <ClInclude Include="..\src\data.h" />
     <ClInclude Include="..\src\libP2P.h" />
     <ClInclude Include="..\src\log.h" />
     <ClInclude Include="..\src\socket\socket.h" />
     <ClInclude Include="..\src\tools.h" />
+    <ClInclude Include="..\src\uuid.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\data.c" />
     <ClCompile Include="..\src\libP2P.c" />
     <ClCompile Include="..\src\log.c" />
     <ClCompile Include="..\src\socket\socket.c" />
     <ClCompile Include="..\src\tools.c" />
+    <ClCompile Include="..\src\uuid.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

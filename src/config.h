@@ -6,6 +6,8 @@
 #include <string.h>
 #include <assert.h>
 #include <stdio.h>
+#include <stdint.h>
+#include <time.h>
 
 
 // socket
