@@ -8,6 +8,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{4ccdd219-a1ce-463c-88d8-0e6a154d1589}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\socket">
+      <UniqueIdentifier>{aa7cf61b-9073-44fc-a2b4-810f0e961943}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -19,21 +22,18 @@
     <ClInclude Include="..\src\config.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\socket.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\log.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\src\tools.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\socket\socket.h">
+      <Filter>src\socket</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\libP2P.c">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\socket.c">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\log.c">
@@ -41,6 +41,9 @@
     </ClCompile>
     <ClCompile Include="..\src\tools.c">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\socket\socket.c">
+      <Filter>src\socket</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

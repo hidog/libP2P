@@ -54,6 +54,7 @@
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
+      <AdditionalIncludeDirectories>D:\code\libP2P\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -84,13 +85,13 @@
     <ClInclude Include="..\src\config.h" />
     <ClInclude Include="..\src\libP2P.h" />
     <ClInclude Include="..\src\log.h" />
-    <ClInclude Include="..\src\socket.h" />
+    <ClInclude Include="..\src\socket\socket.h" />
     <ClInclude Include="..\src\tools.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\libP2P.c" />
     <ClCompile Include="..\src\log.c" />
-    <ClCompile Include="..\src\socket.c" />
+    <ClCompile Include="..\src\socket\socket.c" />
     <ClCompile Include="..\src\tools.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

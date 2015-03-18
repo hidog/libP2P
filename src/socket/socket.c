@@ -25,7 +25,6 @@ int P2P_socket_init()
 		return 1;
     }
 #endif
-
 	return	0;
 }
 
