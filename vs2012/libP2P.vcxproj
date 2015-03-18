@@ -50,7 +50,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LIBP2P_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_WINDOWS;_USRDLL;LIBP2P_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
@@ -85,11 +85,13 @@
     <ClInclude Include="..\src\libP2P.h" />
     <ClInclude Include="..\src\log.h" />
     <ClInclude Include="..\src\socket.h" />
+    <ClInclude Include="..\src\tools.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\libP2P.c" />
     <ClCompile Include="..\src\log.c" />
     <ClCompile Include="..\src\socket.c" />
+    <ClCompile Include="..\src\tools.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

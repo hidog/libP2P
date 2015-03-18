@@ -1,5 +1,6 @@
 #include "socket.h"
 #include "config.h"
+
 #include "log.h"
 
 #pragma comment ( lib, "Ws2_32.lib" )
@@ -19,7 +20,7 @@ int P2P_socket_init()
 	ret = WSAStartup( MAKEWORD(2,2), &wsaData );
 	if( ret != 0 ) 
 	{
-		ALARM_LOG("WSAStartup failed");
+		ALARM_LOG( "WSAStartup failed. error = %d", ret );
 		//printf("WSAStartup failed with error: %d\n", ret );
 		return 1;
     }
@@ -37,3 +38,5 @@ int P2P_socket_free()
 {
 	return	0;
 }
+
+

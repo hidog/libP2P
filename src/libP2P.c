@@ -1,10 +1,7 @@
 #include "libP2P.h"
 
-#include "config.h"
-
 #include "socket.h"
 #include "log.h"
-
 
 
 /***********************************************************
@@ -12,6 +9,8 @@
 ************************************************************/
 int P2P_init()
 {
+	LOG( "P2P_init" )
+
 	// init log
 	P2P_log_init();
 

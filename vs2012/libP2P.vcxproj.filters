@@ -25,6 +25,9 @@
     <ClInclude Include="..\src\log.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\tools.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\libP2P.c">
@@ -34,6 +37,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\log.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tools.c">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
