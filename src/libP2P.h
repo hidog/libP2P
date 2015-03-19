@@ -13,7 +13,7 @@ extern "C" {
 
 LIBP2P_API	int		P2P_init();
 LIBP2P_API	int		P2P_free();
-
+LIBP2P_API	void	P2P_set_opt( uint32_t option );
 
 
 #ifdef __cplusplus

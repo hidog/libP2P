@@ -8,7 +8,10 @@
 typedef struct	GlobalData
 {
 
-	UUID_s	my_uuid;
+	//UUID_s			my_uuid;
+	uint8_t			my_uuid[UUID_LEN];
+	P2P_in_addr_t	my_lan_ip;
+	unsigned char	my_mac_addr[12];
 
 } GlobalData_s ;
 

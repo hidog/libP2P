@@ -10,6 +10,10 @@
 #include <time.h>
 
 
+// define
+
+
+
 // socket
 #ifdef _WIN32
 #include <WinSock2.h>
@@ -30,7 +34,8 @@
 
 
 // typedef 
-typedef struct in_addr	P2P_in_addr;
+typedef struct in_addr	P2P_in_addr_t;
+typedef struct hostent	P2P_hostent_t;
 
 
 #endif
