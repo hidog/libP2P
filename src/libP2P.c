@@ -5,6 +5,7 @@
 #include "tools.h"
 #include "config.h"
 #include "data.h"
+#include "def.h"
 
 
 /***********************************************************
@@ -45,5 +46,22 @@ int P2P_free()
 ************************************************************/
 void	P2P_set_opt( uint32_t option )
 {
+	if( option & P2P_OPT_ENABLE_SERVER != 0 )
+		P2P_data_set_is_server(true);
 
+}
+
+
+
+/***********************************************************
+	P2P_set_opt
+************************************************************/
+int		P2P_start()
+{
+	if( P2P_data_is_server() == true )
+	{
+		// P2P_open_server_socket();
+	}
+
+	return	0;
 }

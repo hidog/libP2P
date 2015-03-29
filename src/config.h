@@ -10,17 +10,28 @@
 #include <time.h>
 
 
-// define
-
+// boolean
+#ifndef __cplusplus
+typedef int		bool;
+#define false	0
+#define true	1
+#endif
 
 
 // socket
 #ifdef _WIN32
 #include <WinSock2.h>
 #include <iphlpapi.h>   //For SendARP
+#include <ws2tcpip.h>
+//#include <windows.h>
+//#include <winsock2.h>
+//#include <ws2tcpip.h>
 #else
 #error need maintain.
 #endif
+
+
+
 
 
 // win32 platform only
@@ -34,8 +45,11 @@
 
 
 // typedef 
-typedef struct in_addr	P2P_in_addr_t;
-typedef struct hostent	P2P_hostent_t;
+typedef struct in_addr		P2P_in_addr_t;
+typedef struct hostent		P2P_hostent_t;
+typedef struct sockaddr_in	P2P_sockaddr_in_t;
+typedef struct sockaddr		P2P_sockaddr_t;
+typedef	SOCKET	P2P_socket_t;
 
 
 #endif

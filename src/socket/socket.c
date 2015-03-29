@@ -3,8 +3,20 @@
 
 #include "log.h"
 
+//#ifdef _WIN32
+//#define WIN32_LEAN_AND_MEAN
+//#endif
+
 #pragma comment ( lib, "Ws2_32.lib" )
-#pragma comment (lib , "iphlpapi.lib")		// for iphlpapi
+//#pragma comment ( lib, "Mswsock.lib")
+//#pragma comment ( lib, "AdvApi32.lib")
+#pragma comment ( lib, "iphlpapi.lib")		// for iphlpapi
+
+
+// global variable
+#define		SERVER_PORT_SIZE	5
+const static int	_server_port[SERVER_PORT_SIZE]	=	{ 1552,	6687, 13357, 28679, 39994 };
+
 
 
 
@@ -30,6 +42,8 @@ int P2P_socket_init()
 
 	//printf("%s", mac );
 	printf("Selected device has mac address : %.2X-%.2X-%.2X-%.2X-%.2X-%.2X",mac[0],mac[1],mac[2],mac[3],mac[4],mac[5]);*/
+
+	//P2P_open_server_socket();
 
 
 	return	0;
@@ -105,6 +119,81 @@ void	P2P_get_mac_addr( unsigned char mac[12] , P2P_in_addr_t dest_ip )
 #endif
 }
 
+
+
+/***********************************************************
+	P2P_open_server_socket
+************************************************************/
+int		P2P_open_server_socket()
+{
+	P2P_socket_t	skt;
+	int		err;
+
+    //SOCKET s;
+    P2P_sockaddr_in_t	server_addr_in; //, si_other;
+    //int slen , recv_len;
+    //char buf[BUFLEN];
+    //WSADATA wsa;
+ 
+    //slen = sizeof(si_other) ;
+          
+    // Create a socket
+	skt		=	socket( AF_INET, SOCK_DGRAM, 0 );
+    if( skt == INVALID_SOCKET)
+    {
+		ALARM_LOG( "Could not create socket: %d" , WSAGetLastError() );
+		return	-1;
+    }
+     
+    //Prepare the sockaddr_in structure
+    server_addr_in.sin_family		=	AF_INET;
+    server_addr_in.sin_addr.s_addr	=	INADDR_ANY;
+    server_addr_in.sin_port			=	htons( _server_port[0] );
+     
+    //Bind
+	err		=	bind( skt, (P2P_sockaddr_t*)&server_addr_in, sizeof(server_addr_in) ); 
+    if( err == SOCKET_ERROR )
+    {
+        ALARM_LOG("Bind failed with error code: %d" , WSAGetLastError());
+        return	-1;
+    }
+
+#if 0
+    //keep listening for data
+    while(1)
+    {
+        printf("Waiting for data...");
+        fflush(stdout);
+         
+        //clear the buffer by filling null, it might have previously received data
+        memset(buf,'\0', BUFLEN);
+         
+        //try to receive some data, this is a blocking call
+        if ((recv_len = recvfrom(s, buf, BUFLEN, 0, (struct sockaddr *) &si_other, &slen)) == SOCKET_ERROR)
+        {
+            printf("recvfrom() failed with error code : %d" , WSAGetLastError());
+            exit(EXIT_FAILURE);
+        }
+         
+        //print details of the client/peer and the data received
+        printf("Received packet from %s:%d\n", inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port));
+        printf("Data: %s\n" , buf);
+         
+        //now reply the client with the same data
+        if (sendto(s, buf, recv_len, 0, (struct sockaddr*) &si_other, slen) == SOCKET_ERROR)
+        {
+            printf("sendto() failed with error code : %d" , WSAGetLastError());
+            exit(EXIT_FAILURE);
+        }
+    }
+ 
+    closesocket(s);
+    WSACleanup();
+#endif
+
+     
+    return 0;
+}
 
 
 

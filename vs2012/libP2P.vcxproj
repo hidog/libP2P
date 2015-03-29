@@ -84,6 +84,7 @@
   <ItemGroup>
     <ClInclude Include="..\src\config.h" />
     <ClInclude Include="..\src\data.h" />
+    <ClInclude Include="..\src\def.h" />
     <ClInclude Include="..\src\libP2P.h" />
     <ClInclude Include="..\src\log.h" />
     <ClInclude Include="..\src\socket\socket.h" />

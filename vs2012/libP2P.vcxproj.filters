@@ -37,6 +37,9 @@
     <ClInclude Include="..\src\data.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\def.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\libP2P.c">
