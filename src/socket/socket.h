@@ -3,7 +3,7 @@
 
 #include "config.h"
 
-#define		SERVER_PORT_SIZE	5
+#define		SERVER_UDP_SKT_SIZE		5
 
 
 

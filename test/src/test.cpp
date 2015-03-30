@@ -19,7 +19,7 @@ int		test_p2p()
 
 	while(true)
 	{
-		printf("wait...\n");
+		//printf("wait...\n");
 		Sleep(10);
 	}
 

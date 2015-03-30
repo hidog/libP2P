@@ -16,7 +16,7 @@
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ global variable ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const static int	_udp_server_port[SERVER_PORT_SIZE]	=	{ 1552,	6687, 13357, 28679, 39994 };
+const static int	_udp_server_port[SERVER_UDP_SKT_SIZE]	=	{ 1552,	6687, 13357, 28679, 39994 };
 
 
 
@@ -124,6 +124,54 @@ void	P2P_get_mac_addr( unsigned char mac[12] , P2P_in_addr_t dest_ip )
 }
 
 
+
+
+/***********************************************************
+	P2P_get_my_lan_ip
+************************************************************/
+int		P2P_get_my_lan_ip( P2P_in_addr_t *p_my_lan_ip )
+{
+    char	str[80];
+	int		ret;
+	int		i;
+	P2P_hostent_t	*phe	=	NULL; 
+    P2P_in_addr_t	addr;
+
+	ret	=	gethostname( str, sizeof(str) );
+	assert( ret != SOCKET_ERROR );
+
+    phe	=	gethostbyname(str);
+	assert( phe != NULL );
+
+	// can get multi ip, but only get the first.
+    //for ( i = 0; phe->h_addr_list[i] != 0; i++ ) 
+       // memcpy( p_my_lan_ip, phe->h_addr_list[i], sizeof(P2P_in_addr_t) );
+    memcpy( p_my_lan_ip, phe->h_addr_list[0], sizeof(P2P_in_addr_t) );
+
+    return 0;
+}
+
+
+
+
+/***********************************************************
+	P2P_open_server_socket
+************************************************************/
+int		P2P_open_server_socket()
+{
+	int		err	=	0;
+
+	err		=	P2P_open_udp_server_socket();
+	if( err < 0 )
+		ALARM_LOG("open udp server socket fail.")
+     
+    return 0;
+}
+
+
+
+
+
 /***********************************************************
 	P2P_open_udp_server_socket
 ************************************************************/
@@ -137,10 +185,10 @@ int		P2P_open_udp_server_socket()
 	p_gdata		=	P2P_get_global_data();
 	if( p_gdata->p_udp_server_skt != NULL )
 		p_gdata->p_udp_server_skt	=	(P2P_socket_t*)P2P_free( p_gdata->p_udp_server_skt );
-	p_gdata->p_udp_server_skt	=	(P2P_socket_t*)P2P_malloc( sizeof(P2P_socket_t) * SERVER_PORT_SIZE );	
+	p_gdata->p_udp_server_skt	=	(P2P_socket_t*)P2P_malloc( sizeof(P2P_socket_t) * SERVER_UDP_SKT_SIZE );	
 
 	//
-	for( i = 0; i < SERVER_PORT_SIZE; i++ )
+	for( i = 0; i < SERVER_UDP_SKT_SIZE; i++ )
 	{          
 		// Create a socket
 		p_gdata->p_udp_server_skt[i]	=	socket( AF_INET, SOCK_DGRAM, IPPROTO_UDP );
@@ -198,50 +246,5 @@ int		P2P_open_udp_server_socket()
 #endif
 
 }
-
-
-
-/***********************************************************
-	P2P_open_server_socket
-************************************************************/
-int		P2P_open_server_socket()
-{
-	int		err	=	0;
-
-	err		=	P2P_open_udp_server_socket();
-	if( err < 0 )
-		ALARM_LOG("open udp server socket fail.")
-     
-    return 0;
-}
-
-
-
-/***********************************************************
-	P2P_get_my_lan_ip
-************************************************************/
-int		P2P_get_my_lan_ip( P2P_in_addr_t *p_my_lan_ip )
-{
-    char	str[80];
-	int		ret;
-	int		i;
-	P2P_hostent_t	*phe	=	NULL; 
-    P2P_in_addr_t	addr;
-
-	ret	=	gethostname( str, sizeof(str) );
-	assert( ret != SOCKET_ERROR );
-
-    phe	=	gethostbyname(str);
-	assert( phe != NULL );
-
-	// can get multi ip, but only get the first.
-    //for ( i = 0; phe->h_addr_list[i] != 0; i++ ) 
-       // memcpy( p_my_lan_ip, phe->h_addr_list[i], sizeof(P2P_in_addr_t) );
-    memcpy( p_my_lan_ip, phe->h_addr_list[0], sizeof(P2P_in_addr_t) );
-
-    return 0;
-}
-
-
 
 

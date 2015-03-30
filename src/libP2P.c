@@ -6,6 +6,7 @@
 #include "config.h"
 #include "data.h"
 #include "def.h"
+#include "thread.h"
 
 
 /***********************************************************
@@ -61,7 +62,7 @@ int		P2P_start()
 	if( P2P_data_is_server() == true )
 	{
 		P2P_open_server_socket();
-		//P2P_create_server_socket_thread();
+		P2P_create_server_socket_thread();
 	}
 
 
