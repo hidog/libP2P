@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <time.h>
-
+#include <stdlib.h>
 
 // boolean
 #ifndef __cplusplus

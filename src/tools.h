@@ -8,7 +8,8 @@
 void		P2P_get_date( char date_str[9] );
 void		P2P_srand( unsigned int seed );
 uint8_t		P2P_uint8_rand();
-
+void*		P2P_free( void *ptr );
+void*		P2P_malloc( int size );
 
 
 #endif

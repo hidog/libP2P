@@ -34,7 +34,7 @@ int P2P_init()
 /***********************************************************
 	P2P_free
 ************************************************************/
-int P2P_free()
+int P2P_release()
 {
 	return 0;
 }
@@ -59,9 +59,8 @@ void	P2P_set_opt( uint32_t option )
 int		P2P_start()
 {
 	if( P2P_data_is_server() == true )
-	{
-		// P2P_open_server_socket();
-	}
+		P2P_open_server_socket();
+
 
 	return	0;
 }

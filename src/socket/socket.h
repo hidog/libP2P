@@ -3,6 +3,9 @@
 
 #include "config.h"
 
+#define		SERVER_PORT_SIZE	5
+
+
 
 int		P2P_socket_init();
 int		P2P_socket_free();

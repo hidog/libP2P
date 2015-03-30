@@ -1,8 +1,8 @@
 #include "tools.h"
+#include "log.h"
+#include "config.h"
 
-#include <time.h>
-#include <stdio.h>
-#include <stdlib.h>
+
 
 /***********************************************************
 	P2P_socket_free
@@ -31,4 +31,33 @@ void	P2P_srand( unsigned int seed )
 uint8_t		P2P_uint8_rand()
 {
 	return	rand() % 256; // 0 ~ 255
+}
+
+
+/***********************************************************
+	P2P_free
+************************************************************/
+void*	P2P_free( void *ptr )
+{
+	free(ptr);
+	return	NULL;
+}
+
+
+
+/***********************************************************
+	P2P_malloc
+************************************************************/
+void*		P2P_malloc( int size )
+{
+	void	*ptr	=	NULL;
+
+	ptr	=	malloc(size);
+	if( ptr == NULL )
+	{
+		ALARM_LOG("malloc error.")
+		return	NULL;
+	}
+
+	return	ptr;
 }

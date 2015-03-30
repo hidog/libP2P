@@ -1,12 +1,26 @@
 #include "data.h"
 #include "socket/socket.h"
 #include "log.h"
+#include "tools.h"
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ global variable ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 static GlobalData_s		*_gp_data	=	NULL;
 
 
+
+
+
+/***********************************************************
+	P2P_data_init
+************************************************************/
+GlobalData_s*	P2P_get_global_data()
+{
+	if( _gp_data == NULL )
+		ALARM_LOG("_gp_data not init.")
+
+	return	_gp_data;
+}
 
 
 /***********************************************************
@@ -18,10 +32,11 @@ int		P2P_data_init()
 	unsigned char	exp_str[UUID_LEN];
 	char	uuid_str[UUID_STR_LEN];
 
-	_gp_data	=	(GlobalData_s*)malloc( sizeof(GlobalData_s) );
+	_gp_data	=	(GlobalData_s*)P2P_malloc( sizeof(GlobalData_s) );
 
 	// 
 	_gp_data->is_server		=	false;
+	_gp_data->p_server_skt	=	NULL;
 
 	//
 	P2P_get_my_lan_ip( &_gp_data->my_lan_ip );

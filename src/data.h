@@ -15,12 +15,17 @@ typedef struct	GlobalData
 	P2P_in_addr_t	my_lan_ip;
 	unsigned char	my_mac_addr[12];
 
+	// use for server
+	P2P_socket_t	*p_server_skt;
+
+
 } GlobalData_s ;
 
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-int		P2P_data_init();
+int				P2P_data_init();
+GlobalData_s*	P2P_get_global_data();
 
 void	P2P_data_set_is_server( bool is );
 bool	P2P_data_is_server();

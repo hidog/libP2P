@@ -1,7 +1,9 @@
 #include "socket.h"
 #include "config.h"
 
+#include "data.h"
 #include "log.h"
+#include "tools.h"
 
 //#ifdef _WIN32
 //#define WIN32_LEAN_AND_MEAN
@@ -13,8 +15,7 @@
 #pragma comment ( lib, "iphlpapi.lib")		// for iphlpapi
 
 
-// global variable
-#define		SERVER_PORT_SIZE	5
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ global variable ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const static int	_server_port[SERVER_PORT_SIZE]	=	{ 1552,	6687, 13357, 28679, 39994 };
 
 
@@ -42,8 +43,6 @@ int P2P_socket_init()
 
 	//printf("%s", mac );
 	printf("Selected device has mac address : %.2X-%.2X-%.2X-%.2X-%.2X-%.2X",mac[0],mac[1],mac[2],mac[3],mac[4],mac[5]);*/
-
-	//P2P_open_server_socket();
 
 
 	return	0;
@@ -82,6 +81,11 @@ int		P2P_winsock_init()
 ************************************************************/
 int P2P_socket_free()
 {
+
+#ifdef _WIN32
+	WSACleanup();
+#endif
+
 	return	0;
 }
 
@@ -126,37 +130,40 @@ void	P2P_get_mac_addr( unsigned char mac[12] , P2P_in_addr_t dest_ip )
 ************************************************************/
 int		P2P_open_server_socket()
 {
-	P2P_socket_t	skt;
-	int		err;
+	int		err,	i;
+    P2P_sockaddr_in_t	server_addr_in; 
+	GlobalData_s*		p_gdata		=	NULL;
 
-    //SOCKET s;
-    P2P_sockaddr_in_t	server_addr_in; //, si_other;
-    //int slen , recv_len;
-    //char buf[BUFLEN];
-    //WSADATA wsa;
- 
-    //slen = sizeof(si_other) ;
-          
-    // Create a socket
-	skt		=	socket( AF_INET, SOCK_DGRAM, 0 );
-    if( skt == INVALID_SOCKET)
-    {
-		ALARM_LOG( "Could not create socket: %d" , WSAGetLastError() );
-		return	-1;
-    }
+	//
+	p_gdata		=	P2P_get_global_data();
+	if( p_gdata->p_server_skt != NULL )
+		p_gdata->p_server_skt	=	(P2P_socket_t*)P2P_free( p_gdata->p_server_skt );
+	p_gdata->p_server_skt	=	(P2P_socket_t*)P2P_malloc( sizeof(P2P_socket_t) * SERVER_PORT_SIZE );	
+
+	//
+	for( i = 0; i < SERVER_PORT_SIZE; i++ )
+	{          
+		// Create a socket
+		p_gdata->p_server_skt[i]	=	socket( AF_INET, SOCK_DGRAM, 0 );
+		if( p_gdata->p_server_skt[i] == INVALID_SOCKET)
+		{
+			ALARM_LOG( "Could not create socket: %d" , WSAGetLastError() );
+			return	-1;
+		}
      
-    //Prepare the sockaddr_in structure
-    server_addr_in.sin_family		=	AF_INET;
-    server_addr_in.sin_addr.s_addr	=	INADDR_ANY;
-    server_addr_in.sin_port			=	htons( _server_port[0] );
+		//Prepare the sockaddr_in structure
+		server_addr_in.sin_family		=	AF_INET;
+		server_addr_in.sin_addr.s_addr	=	INADDR_ANY;
+		server_addr_in.sin_port			=	htons( _server_port[i] );
      
-    //Bind
-	err		=	bind( skt, (P2P_sockaddr_t*)&server_addr_in, sizeof(server_addr_in) ); 
-    if( err == SOCKET_ERROR )
-    {
-        ALARM_LOG("Bind failed with error code: %d" , WSAGetLastError());
-        return	-1;
-    }
+		//Bind
+		err		=	bind( p_gdata->p_server_skt[i], (P2P_sockaddr_t*)&server_addr_in, sizeof(server_addr_in) ); 
+		if( err == SOCKET_ERROR )
+		{
+			ALARM_LOG("Bind failed with error code: %d" , WSAGetLastError());
+			return	-1;
+		}
+	}
 
 #if 0
     //keep listening for data
