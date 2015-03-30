@@ -35,8 +35,9 @@ int		P2P_data_init()
 	_gp_data	=	(GlobalData_s*)P2P_malloc( sizeof(GlobalData_s) );
 
 	// 
-	_gp_data->is_server		=	false;
-	_gp_data->p_server_skt	=	NULL;
+	_gp_data->is_server				=	false;
+	_gp_data->p_udp_server_skt		=	NULL;
+	_gp_data->p_server_skt_thread	=	NULL;
 
 	//
 	P2P_get_my_lan_ip( &_gp_data->my_lan_ip );

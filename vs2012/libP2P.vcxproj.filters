@@ -11,6 +11,9 @@
     <Filter Include="src\socket">
       <UniqueIdentifier>{aa7cf61b-9073-44fc-a2b4-810f0e961943}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\server">
+      <UniqueIdentifier>{2abcf39d-0b2b-4584-9862-d7990c3c4ceb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -40,6 +43,12 @@
     <ClInclude Include="..\src\def.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\thread.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\server\server.h">
+      <Filter>src\server</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\libP2P.c">
@@ -59,6 +68,12 @@
     </ClCompile>
     <ClCompile Include="..\src\data.c">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\server\server.c">
+      <Filter>src\server</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

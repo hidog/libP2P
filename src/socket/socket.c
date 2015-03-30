@@ -16,7 +16,7 @@
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ global variable ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const static int	_server_port[SERVER_PORT_SIZE]	=	{ 1552,	6687, 13357, 28679, 39994 };
+const static int	_udp_server_port[SERVER_PORT_SIZE]	=	{ 1552,	6687, 13357, 28679, 39994 };
 
 
 
@@ -124,11 +124,10 @@ void	P2P_get_mac_addr( unsigned char mac[12] , P2P_in_addr_t dest_ip )
 }
 
 
-
 /***********************************************************
-	P2P_open_server_socket
+	P2P_open_udp_server_socket
 ************************************************************/
-int		P2P_open_server_socket()
+int		P2P_open_udp_server_socket()
 {
 	int		err,	i;
     P2P_sockaddr_in_t	server_addr_in; 
@@ -136,16 +135,16 @@ int		P2P_open_server_socket()
 
 	//
 	p_gdata		=	P2P_get_global_data();
-	if( p_gdata->p_server_skt != NULL )
-		p_gdata->p_server_skt	=	(P2P_socket_t*)P2P_free( p_gdata->p_server_skt );
-	p_gdata->p_server_skt	=	(P2P_socket_t*)P2P_malloc( sizeof(P2P_socket_t) * SERVER_PORT_SIZE );	
+	if( p_gdata->p_udp_server_skt != NULL )
+		p_gdata->p_udp_server_skt	=	(P2P_socket_t*)P2P_free( p_gdata->p_udp_server_skt );
+	p_gdata->p_udp_server_skt	=	(P2P_socket_t*)P2P_malloc( sizeof(P2P_socket_t) * SERVER_PORT_SIZE );	
 
 	//
 	for( i = 0; i < SERVER_PORT_SIZE; i++ )
 	{          
 		// Create a socket
-		p_gdata->p_server_skt[i]	=	socket( AF_INET, SOCK_DGRAM, 0 );
-		if( p_gdata->p_server_skt[i] == INVALID_SOCKET)
+		p_gdata->p_udp_server_skt[i]	=	socket( AF_INET, SOCK_DGRAM, IPPROTO_UDP );
+		if( p_gdata->p_udp_server_skt[i] == INVALID_SOCKET)
 		{
 			ALARM_LOG( "Could not create socket: %d" , WSAGetLastError() );
 			return	-1;
@@ -154,10 +153,10 @@ int		P2P_open_server_socket()
 		//Prepare the sockaddr_in structure
 		server_addr_in.sin_family		=	AF_INET;
 		server_addr_in.sin_addr.s_addr	=	INADDR_ANY;
-		server_addr_in.sin_port			=	htons( _server_port[i] );
+		server_addr_in.sin_port			=	htons( _udp_server_port[i] );
      
 		//Bind
-		err		=	bind( p_gdata->p_server_skt[i], (P2P_sockaddr_t*)&server_addr_in, sizeof(server_addr_in) ); 
+		err		=	bind( p_gdata->p_udp_server_skt[i], (P2P_sockaddr_t*)&server_addr_in, sizeof(server_addr_in) ); 
 		if( err == SOCKET_ERROR )
 		{
 			ALARM_LOG("Bind failed with error code: %d" , WSAGetLastError());
@@ -198,6 +197,20 @@ int		P2P_open_server_socket()
     WSACleanup();
 #endif
 
+}
+
+
+
+/***********************************************************
+	P2P_open_server_socket
+************************************************************/
+int		P2P_open_server_socket()
+{
+	int		err	=	0;
+
+	err		=	P2P_open_udp_server_socket();
+	if( err < 0 )
+		ALARM_LOG("open udp server socket fail.")
      
     return 0;
 }

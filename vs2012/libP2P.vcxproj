@@ -87,7 +87,9 @@
     <ClInclude Include="..\src\def.h" />
     <ClInclude Include="..\src\libP2P.h" />
     <ClInclude Include="..\src\log.h" />
+    <ClInclude Include="..\src\server\server.h" />
     <ClInclude Include="..\src\socket\socket.h" />
+    <ClInclude Include="..\src\thread.h" />
     <ClInclude Include="..\src\tools.h" />
     <ClInclude Include="..\src\uuid.h" />
   </ItemGroup>
@@ -95,7 +97,9 @@
     <ClCompile Include="..\src\data.c" />
     <ClCompile Include="..\src\libP2P.c" />
     <ClCompile Include="..\src\log.c" />
+    <ClCompile Include="..\src\server\server.c" />
     <ClCompile Include="..\src\socket\socket.c" />
+    <ClCompile Include="..\src\thread.c" />
     <ClCompile Include="..\src\tools.c" />
     <ClCompile Include="..\src\uuid.c" />
   </ItemGroup>

@@ -10,13 +10,14 @@ typedef struct	GlobalData
 	// options
 	bool	is_server;
 
-	//
+	// system use
 	uint8_t			my_uuid[UUID_LEN];
 	P2P_in_addr_t	my_lan_ip;
 	unsigned char	my_mac_addr[12];
+	HANDLE			*p_server_skt_thread;
 
 	// use for server
-	P2P_socket_t	*p_server_skt;
+	P2P_socket_t	*p_udp_server_skt;
 
 
 } GlobalData_s ;

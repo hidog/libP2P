@@ -17,5 +17,11 @@ int		test_p2p()
 
 	P2P_start();
 
+	while(true)
+	{
+		printf("wait...\n");
+		Sleep(10);
+	}
+
 	return 0;
 }
