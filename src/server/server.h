@@ -3,9 +3,7 @@
 
 #include "config.h"
 
-//#include <windows.h>
-//#include <tchar.h>
-//#include <strsafe.h>
+
 
 DWORD WINAPI	P2P_server_udp_skt_recv( void* lp_param );
 

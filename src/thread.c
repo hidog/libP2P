@@ -48,7 +48,7 @@ P2P_thread_t	P2P_create_thread( LPSECURITY_ATTRIBUTES lp_thread_attributes,
 ************************************************************/
 int		P2P_create_server_socket_thread()
 {
-	static const int	index[SERVER_UDP_SKT_SIZE]	=	{ 1, 2, 3, 4, 5 };
+	static const int	index[SERVER_UDP_SKT_SIZE]	=	{ 0, 1, 2, 3, 4 };
 
 	GlobalData_s	*p_gdata		=	P2P_get_global_data();
 	int		server_skt_thr_size		=	SERVER_UDP_SKT_SIZE;
