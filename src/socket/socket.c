@@ -37,7 +37,10 @@ DWORD WINAPI	P2P_skt_recv( void* lp_param )
 		ret		=	recvfrom( skt, buf, buf_len, 0, (P2P_sockaddr_t*)&addr_from, &from_len );
 
 		if( ret >= 0 )
+		{
+			buf[ret]	=	'\0';
 			printf("buf = %s\n", buf);
+		}
 
 		Sleep(10);
 	}
