@@ -15,7 +15,7 @@ void	P2P_uuid_generate( uint8_t *p_uuid, uint8_t *exp_str )
 
 	int		i;
 
-	P2P_srand( time(0) );
+	P2P_srand( (unsigned int)time(0) );
 
 	assert( p_uuid != NULL );
 

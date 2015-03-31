@@ -4,6 +4,8 @@
 #include "config.h"
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ macros & defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 #define ALARM_LOG(...) \
 	{ \
 		printf("ALARM [%s] [%s] [%d] msg: ", __FILE__, __FUNCTION__, __LINE__ ); \

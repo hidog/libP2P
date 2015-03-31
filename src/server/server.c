@@ -4,7 +4,7 @@
 #include "tools.h"
 #include "log.h"
 #include "data.h"
-
+#include "def.h"
 #include "server/server.h"
 
 
@@ -37,7 +37,7 @@ int		P2P_open_udp_server_socket()
 		if( p_gdata->p_udp_server_skt[i] == INVALID_SOCKET)
 		{
 			ALARM_LOG( "Could not create socket: %d" , WSAGetLastError() );
-			return	-1;
+			return	P2P_ERROR;
 		}
      
 		//Prepare the sockaddr_in structure
@@ -50,9 +50,11 @@ int		P2P_open_udp_server_socket()
 		if( err == SOCKET_ERROR )
 		{
 			ALARM_LOG("Bind failed with error code: %d" , WSAGetLastError());
-			return	-1;
+			return	P2P_ERROR;
 		}
 	}
+
+	return	P2P_OK;
 
 #if 0
     //keep listening for data

@@ -29,7 +29,7 @@ GlobalData_s*	P2P_get_global_data()
 int		P2P_data_init()
 {
 	unsigned char	*tmp_mac	=	NULL;
-	unsigned char	exp_str[UUID_LEN];
+	uint8_t	exp_str[UUID_LEN];
 	char	uuid_str[UUID_STR_LEN];
 
 	_gp_data	=	(GlobalData_s*)P2P_malloc( sizeof(GlobalData_s) );
@@ -50,7 +50,7 @@ int		P2P_data_init()
 
 	//
 	P2P_uuid_mac_expd( tmp_mac, exp_str );
-	P2P_uuid_generate( &_gp_data->my_uuid, exp_str );
+	P2P_uuid_generate( &_gp_data->my_uuid[0], &exp_str[0] );
 	P2P_uuid_to_str( _gp_data->my_uuid, uuid_str );
 	LOG( "my uuid = %s", uuid_str );
 
@@ -84,7 +84,7 @@ bool	P2P_data_is_server()
 	if( _gp_data == NULL )
 	{
 		ALARM_LOG("_gp_data is NULL")
-		return;
+		return	false;
 	}
 	
 	return	_gp_data->is_server;

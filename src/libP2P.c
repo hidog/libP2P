@@ -112,7 +112,7 @@ int		P2P_set_name( const char *name )
 int		P2P_set_passwd( const char *passwd )
 {
 	GlobalData_s	*p_gdata	=	P2P_get_global_data();
-	int		i,	len;
+	int		len;
 	bool	is	=	false;
 
 	if( p_gdata->p_passwd != NULL )
@@ -144,7 +144,7 @@ int		P2P_set_passwd( const char *passwd )
 ************************************************************/
 void	P2P_set_opt( uint32_t option )
 {
-	if( option & P2P_OPT_ENABLE_SERVER != 0 )
+	if( MASK_MACRO( option, P2P_OPT_ENABLE_SERVER ) != 0 )
 		P2P_data_set_is_server(true);
 
 }

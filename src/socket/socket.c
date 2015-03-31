@@ -24,17 +24,19 @@ DWORD WINAPI	P2P_skt_recv( void* lp_param )
 {
 	int		count	=	0;
 	P2P_socket_t	skt		=	P2P_get_global_data()->bcast_skt;
-	char	buf[1500],	buf_len	=	1500;
+	char	buf[1500];
+	int		buf_len	=	1500;
 	P2P_sockaddr_in_t	addr_from;
 	int		ret;
+	int		from_len	=	sizeof(P2P_sockaddr_in_t);
 
 	while(1)
 	{
 		//printf("test %d\n", count++);
 
-		ret		=	recvfrom( skt, buf, buf_len, 0, (P2P_sockaddr_t*)&addr_from, sizeof(P2P_sockaddr_in_t) );
+		ret		=	recvfrom( skt, buf, buf_len, 0, (P2P_sockaddr_t*)&addr_from, &from_len );
 
-		if( ret > 0 )
+		if( ret >= 0 )
 			printf("buf = %s\n", buf);
 
 		Sleep(10);
@@ -158,7 +160,8 @@ void	P2P_get_mac_addr( unsigned char mac[12] , P2P_in_addr_t dest_ip )
 ************************************************************/
 int		P2P_init_broadcast_socket()
 {
-	GlobalData_s	*p_gdata	=	P2P_get_global_data();
+	GlobalData_s		*p_gdata	=	P2P_get_global_data();
+	P2P_sockaddr_in_t	addr;	
 	int		err;
 	int		bcast_enable	=	1;
 
@@ -176,6 +179,19 @@ int		P2P_init_broadcast_socket()
 		return	P2P_ERROR;
 	}
 
+	addr.sin_family			=	AF_INET;
+	addr.sin_addr.s_addr	=	INADDR_ANY;
+	addr.sin_port			=	htons( 3330 );
+
+	err		=	bind( p_gdata->bcast_skt, (P2P_sockaddr_t*)&addr, sizeof(addr) ); 
+	if( err == INVALID_SOCKET )
+	{
+		ALARM_LOG( "Could not create socket: %d" , WSAGetLastError() );
+		return	P2P_ERROR;
+	}
+
+	return	P2P_OK;
+
 /*bcast_sock = socket(AF_INET, SOCK_DGRAM, 0);
 int broadcastEnable=1;
 int ret=setsockopt(bcast_sock, SOL_SOCKET, SO_BROADCAST, &broadcastEnable, sizeof(broadcastEnable));*/
@@ -190,9 +206,8 @@ int		P2P_get_my_lan_ip( P2P_in_addr_t *p_my_lan_ip )
 {
     char	str[80];
 	int		ret;
-	int		i;
+
 	P2P_hostent_t	*phe	=	NULL; 
-    P2P_in_addr_t	addr;
 
 	ret	=	gethostname( str, sizeof(str) );
 	assert( ret != SOCKET_ERROR );

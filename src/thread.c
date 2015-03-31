@@ -77,7 +77,6 @@ int		P2P_create_skt_recv_thread()
 {
 	GlobalData_s	*p_gdata		=	P2P_get_global_data();
 	int		server_skt_thr_size		=	SERVER_UDP_SKT_SIZE;
-	int		i;
 
 	//p_gdata->p_server_skt_thread	=	(P2P_thread_t*)P2P_malloc( sizeof(P2P_thread_t) * server_skt_thr_size );
 
