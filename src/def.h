@@ -4,6 +4,8 @@
 
 #define		P2P_OPT_ENABLE_SERVER	0x00000001
 
+#define		P2P_ERROR	-1;
+#define		P2P_OK		1;
 
 
 #endif

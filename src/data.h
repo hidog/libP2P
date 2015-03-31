@@ -4,6 +4,11 @@
 #include "uuid.h"
 #include "config.h"
 
+
+#define		NAME_SIZE		50
+#define		PASSWD_SIZE		50
+
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ struct ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 typedef struct	GlobalData
 {
@@ -11,6 +16,8 @@ typedef struct	GlobalData
 	bool	is_server;
 
 	// system use
+	char			*p_name;
+	char			*p_passwd;
 	uint8_t			my_uuid[UUID_LEN];
 	P2P_in_addr_t	my_lan_ip;
 	unsigned char	my_mac_addr[12];

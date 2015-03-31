@@ -52,4 +52,5 @@ typedef struct sockaddr		P2P_sockaddr_t;
 typedef	SOCKET	P2P_socket_t;
 typedef HANDLE	P2P_thread_t;
 
+
 #endif

@@ -13,7 +13,9 @@
 int		test_p2p()
 {
 	P2P_init();
-	P2P_set_opt( P2P_OPT_ENABLE_SERVER );
+	//P2P_set_opt( P2P_OPT_ENABLE_SERVER );
+	P2P_set_name( "P771" );
+	P2P_set_passwd( "P771" );
 
 	P2P_start();
 

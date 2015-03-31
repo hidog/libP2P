@@ -38,6 +38,8 @@ int		P2P_data_init()
 	_gp_data->is_server				=	false;
 	_gp_data->p_udp_server_skt		=	NULL;
 	_gp_data->p_server_skt_thread	=	NULL;
+	_gp_data->p_name	=	NULL;
+	_gp_data->p_passwd	=	NULL;
 
 	//
 	P2P_get_my_lan_ip( &_gp_data->my_lan_ip );

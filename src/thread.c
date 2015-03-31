@@ -28,6 +28,8 @@ P2P_thread_t	P2P_create_thread( LPSECURITY_ATTRIBUTES lp_thread_attributes,
 							  dw_creation_flags,
 							  lp_thread_id );
 
+	return	thread;
+
 	//HANDLE  hThreadArray[MAX_THREADS]; 
 
 	/*hThreadArray[i] = CreateThread( 

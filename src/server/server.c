@@ -19,6 +19,8 @@
 	https://msdn.microsoft.com/en-us/library/windows/desktop/ms740506%28v=vs.85%29.aspx
 
 	error code see https://msdn.microsoft.com/en-us/library/windows/desktop/ms740668%28v=vs.85%29.aspx
+
+	https://msdn.microsoft.com/en-us/library/windows/desktop/ms740506%28v=vs.85%29.aspx   socket 
 ************************************************************/
 DWORD WINAPI	P2P_server_udp_skt_recv( void* lp_param )
 {

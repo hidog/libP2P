@@ -41,6 +41,87 @@ int P2P_release()
 }
 
 
+/***********************************************************
+	P2P_set_name
+	need only alphanumeric and _
+************************************************************/
+int		P2P_set_name( const char *name )
+{
+	GlobalData_s	*p_gdata	=	P2P_get_global_data();
+	int		i,	len;
+	bool	is	=	false;
+
+	if( p_gdata->p_name != NULL )
+	{
+		WARNING_LOG( "already set name." )
+		return	P2P_ERROR;
+	}
+
+	// check name format.
+	len		=	strlen(name);
+	if( len >= NAME_SIZE )
+	{
+		ALARM_LOG( "name size too large." )
+		return	P2P_ERROR;
+	}
+	for( i = 0; i < len; i++ )
+	{
+		is	=	false;
+
+		is	|=	name[i] >= 'a' && name[i] <= 'z';
+		is	|=	name[i] >= 'A' && name[i] <= 'Z';
+		is	|=	name[i] >= '0' && name[i] <= '9';
+		is	|=	name[i] == '_';
+
+		if( is == false )
+		{
+			WARNING_LOG("name format error.")
+			return	P2P_ERROR;
+		}
+	}
+
+	// set name
+	p_gdata->p_name	=	(char*)P2P_malloc(NAME_SIZE);
+	memset( p_gdata->p_name, 0, NAME_SIZE );
+	memcpy( p_gdata->p_name, name, len );
+
+	return	P2P_OK;
+}
+
+
+
+/***********************************************************
+	P2P_set_passwd
+************************************************************/
+int		P2P_set_passwd( const char *passwd )
+{
+	GlobalData_s	*p_gdata	=	P2P_get_global_data();
+	int		i,	len;
+	bool	is	=	false;
+
+	if( p_gdata->p_passwd != NULL )
+	{
+		WARNING_LOG( "already set passwd." )
+		return	P2P_ERROR;
+	}
+
+	// check name format.
+	len		=	strlen(passwd);
+	if( len >= PASSWD_SIZE )
+	{
+		ALARM_LOG( "passwd size too large." )
+		return	P2P_ERROR;
+	}
+
+	// set passwd
+	p_gdata->p_passwd	=	(char*)P2P_malloc(NAME_SIZE);
+	memset( p_gdata->p_passwd, 0, NAME_SIZE );
+	memcpy( p_gdata->p_passwd, passwd, len );
+
+	return	P2P_OK;
+}
+
+
 
 /***********************************************************
 	P2P_set_opt
