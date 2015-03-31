@@ -11,6 +11,99 @@
 
 
 /***********************************************************
+	P2P_open_udp_server_socket
+************************************************************/
+int		P2P_open_udp_server_socket()
+{
+	int		err,	i;
+    P2P_sockaddr_in_t	server_addr_in; 
+	GlobalData_s*		p_gdata		=	NULL;
+
+	//
+	p_gdata		=	P2P_get_global_data();
+	if( p_gdata->p_udp_server_skt != NULL )
+		p_gdata->p_udp_server_skt	=	(P2P_socket_t*)P2P_free( p_gdata->p_udp_server_skt );
+	p_gdata->p_udp_server_skt	=	(P2P_socket_t*)P2P_malloc( sizeof(P2P_socket_t) * SERVER_UDP_SKT_SIZE );	
+
+	//
+	for( i = 0; i < SERVER_UDP_SKT_SIZE; i++ )
+	{          
+		// Create a socket
+		p_gdata->p_udp_server_skt[i]	=	socket( AF_INET, SOCK_DGRAM, IPPROTO_UDP );
+		if( p_gdata->p_udp_server_skt[i] == INVALID_SOCKET)
+		{
+			ALARM_LOG( "Could not create socket: %d" , WSAGetLastError() );
+			return	-1;
+		}
+     
+		//Prepare the sockaddr_in structure
+		server_addr_in.sin_family		=	AF_INET;
+		server_addr_in.sin_addr.s_addr	=	INADDR_ANY;
+		server_addr_in.sin_port			=	htons( _udp_server_port[i] );
+     
+		//Bind
+		err		=	bind( p_gdata->p_udp_server_skt[i], (P2P_sockaddr_t*)&server_addr_in, sizeof(server_addr_in) ); 
+		if( err == SOCKET_ERROR )
+		{
+			ALARM_LOG("Bind failed with error code: %d" , WSAGetLastError());
+			return	-1;
+		}
+	}
+
+#if 0
+    //keep listening for data
+    while(1)
+    {
+        printf("Waiting for data...");
+        fflush(stdout);
+         
+        //clear the buffer by filling null, it might have previously received data
+        memset(buf,'\0', BUFLEN);
+         
+        //try to receive some data, this is a blocking call
+        if ((recv_len = recvfrom(s, buf, BUFLEN, 0, (struct sockaddr *) &si_other, &slen)) == SOCKET_ERROR)
+        {
+            printf("recvfrom() failed with error code : %d" , WSAGetLastError());
+            exit(EXIT_FAILURE);
+        }
+         
+        //print details of the client/peer and the data received
+        printf("Received packet from %s:%d\n", inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port));
+        printf("Data: %s\n" , buf);
+         
+        //now reply the client with the same data
+        if (sendto(s, buf, recv_len, 0, (struct sockaddr*) &si_other, slen) == SOCKET_ERROR)
+        {
+            printf("sendto() failed with error code : %d" , WSAGetLastError());
+            exit(EXIT_FAILURE);
+        }
+    }
+ 
+    closesocket(s);
+    WSACleanup();
+#endif
+
+}
+
+
+
+
+/***********************************************************
+	P2P_open_server_socket
+************************************************************/
+int		P2P_open_server_socket()
+{
+	int		err	=	0;
+
+	err		=	P2P_open_udp_server_socket();
+	if( err < 0 )
+		ALARM_LOG("open udp server socket fail.")
+     
+    return 0;
+}
+
+
+/***********************************************************
 	P2P_server_udp_skt_recv
 	http://www.binarytides.com/udp-socket-programming-in-winsock/
 	http://www.binarytides.com/winsock-socket-programming-tutorial/

@@ -12,8 +12,8 @@ int		P2P_socket_free();
 void	P2P_get_mac_addr( unsigned char mac[12] , P2P_in_addr_t dest_ip );
 int		P2P_get_my_lan_ip( P2P_in_addr_t *p_my_lan_ip );
 
-int		P2P_open_server_socket();
-int		P2P_open_udp_server_socket();
+int		P2P_init_broadcast_socket();
+
 
 
 #ifdef _WIN32

@@ -8,4 +8,7 @@
 DWORD WINAPI	P2P_server_udp_skt_recv( void* lp_param );
 
 
+int		P2P_open_server_socket();
+int		P2P_open_udp_server_socket();
+
 #endif

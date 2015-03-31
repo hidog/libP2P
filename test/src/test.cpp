@@ -19,6 +19,8 @@ int		test_p2p()
 
 	P2P_start();
 
+	P2P_lan_search();
+
 	while(true)
 	{
 		//printf("wait...\n");

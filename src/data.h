@@ -26,6 +26,8 @@ typedef struct	GlobalData
 	// use for server
 	P2P_socket_t	*p_udp_server_skt;
 
+	// use for LAN
+	P2P_socket_t	bcast_skt;
 
 } GlobalData_s ;
 
