@@ -14,6 +14,9 @@
     <Filter Include="src\server">
       <UniqueIdentifier>{2abcf39d-0b2b-4584-9862-d7990c3c4ceb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\module">
+      <UniqueIdentifier>{63c6bb92-1397-4085-aebe-1b56fa18d20e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -49,6 +52,9 @@
     <ClInclude Include="..\src\server\server.h">
       <Filter>src\server</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\module\lan.h">
+      <Filter>src\module</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\libP2P.c">
@@ -74,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="..\src\server\server.c">
       <Filter>src\server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\module\lan.c">
+      <Filter>src\module</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -16,8 +16,32 @@
 #pragma comment ( lib, "iphlpapi.lib")		// for iphlpapi
 
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ global variable ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const static int	_udp_server_port[SERVER_UDP_SKT_SIZE]	=	{ 1552,	6687, 13357, 28679, 39994 };
+
+/***********************************************************
+	P2P_skt_recv
+************************************************************/
+DWORD WINAPI	P2P_skt_recv( void* lp_param )
+{
+	int		count	=	0;
+	P2P_socket_t	skt		=	P2P_get_global_data()->bcast_skt;
+	char	buf[1500],	buf_len	=	1500;
+	P2P_sockaddr_in_t	addr_from;
+	int		ret;
+
+	while(1)
+	{
+		//printf("test %d\n", count++);
+
+		ret		=	recvfrom( skt, buf, buf_len, 0, (P2P_sockaddr_t*)&addr_from, sizeof(P2P_sockaddr_in_t) );
+
+		if( ret > 0 )
+			printf("buf = %s\n", buf);
+
+		Sleep(10);
+	}
+
+	return	1;
+}
 
 
 
@@ -45,7 +69,6 @@ int P2P_socket_init()
 	//printf("%s", mac );
 	printf("Selected device has mac address : %.2X-%.2X-%.2X-%.2X-%.2X-%.2X",mac[0],mac[1],mac[2],mac[3],mac[4],mac[5]);*/
 
-	P2P_init_broadcast_socket();
 
 
 	return	0;

@@ -15,7 +15,7 @@ P2P_thread_t	P2P_create_thread( LPSECURITY_ATTRIBUTES lp_thread_attributes, SIZE
 								   LPVOID lp_parameter, DWORD dw_creation_flags, LPDWORD lp_thread_id );
 
 int		P2P_create_server_socket_thread();
-
+int		P2P_create_skt_recv_thread();
 
 
 #endif

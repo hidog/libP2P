@@ -7,6 +7,8 @@
 #include "data.h"
 #include "def.h"
 #include "thread.h"
+#include "module/lan.h"
+#include "server/server.h"
 
 
 /***********************************************************
@@ -48,6 +50,8 @@ int P2P_release()
 ************************************************************/
 int		P2P_lan_search()
 {
+	P2P_send_lan_search();
+
 	return	P2P_OK;
 }
 
@@ -158,6 +162,8 @@ int		P2P_start()
 		P2P_create_server_socket_thread();
 	}
 
-
+	P2P_init_broadcast_socket();
+	P2P_create_skt_recv_thread();
+	
 	return	0;
 }

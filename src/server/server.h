@@ -3,6 +3,7 @@
 
 #include "config.h"
 
+#define		SERVER_UDP_SKT_SIZE		5
 
 
 DWORD WINAPI	P2P_server_udp_skt_recv( void* lp_param );

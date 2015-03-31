@@ -5,6 +5,8 @@
 #include "socket/socket.h"
 #include "thread.h"
 #include "server/server.h"
+#include "def.h"
+
 
 #define MAX_THREADS 10
 
@@ -61,5 +63,26 @@ int		P2P_create_server_socket_thread()
 	//
 	for( i = 0; i < server_skt_thr_size; i++ )
 		p_gdata->p_server_skt_thread	=	P2P_create_thread( NULL, 0, P2P_server_udp_skt_recv,
-															   &index[i], 0, NULL );
+															   (void*)&index[i], 0, NULL );
+
+	return	P2P_OK;
+}
+
+
+
+/***********************************************************
+	P2P_create_skt_recv_thread
+************************************************************/
+int		P2P_create_skt_recv_thread()
+{
+	GlobalData_s	*p_gdata		=	P2P_get_global_data();
+	int		server_skt_thr_size		=	SERVER_UDP_SKT_SIZE;
+	int		i;
+
+	//p_gdata->p_server_skt_thread	=	(P2P_thread_t*)P2P_malloc( sizeof(P2P_thread_t) * server_skt_thr_size );
+
+	//
+	P2P_create_thread( NULL, 0, P2P_skt_recv, NULL, 0, NULL );
+
+	return	P2P_OK;
 }
