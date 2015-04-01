@@ -1,15 +1,17 @@
 #include "libP2P.h"
+#include "data.h"
+#include "thread.h"
 
 #include "socket/socket.h"
-#include "log.h"
-#include "tools.h"
-#include "config.h"
-#include "data.h"
-#include "def.h"
-#include "thread.h"
-#include "module/lan.h"
+
 #include "server/server.h"
 
+#include "module/lan/lan.h"
+
+#include "basic/def.h"
+#include "basic/log.h"
+#include "basic/tools.h"
+#include "basic/config.h"
 
 /***********************************************************
 	P2P_init

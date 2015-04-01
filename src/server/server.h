@@ -1,7 +1,7 @@
 #ifndef P2P_SERVER_H
 #define P2P_SERVER_H
 
-#include "config.h"
+#include "basic/config.h"
 
 #define		SERVER_UDP_SKT_SIZE		5
 

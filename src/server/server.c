@@ -1,12 +1,10 @@
 #include "server.h"
-#include "config.h"
 #include "data.h"
-#include "tools.h"
-#include "log.h"
-#include "data.h"
-#include "def.h"
-#include "server/server.h"
 
+#include "basic/def.h"
+#include "basic/config.h"
+#include "basic/tools.h"
+#include "basic/log.h"
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ global variable ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,7 +1,7 @@
 #include "data.h"
 #include "socket/socket.h"
-#include "log.h"
-#include "tools.h"
+#include "basic/log.h"
+#include "basic/tools.h"
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ global variable ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
