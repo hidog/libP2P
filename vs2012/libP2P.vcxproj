@@ -9,6 +9,10 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="test|Win32">
+      <Configuration>test</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B138915E-F2AB-4EBC-8A31-41B26C0D9432}</ProjectGuid>
@@ -18,6 +22,12 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='test|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -35,11 +45,17 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='test|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='test|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -58,6 +74,25 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='test|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <AdditionalIncludeDirectories>D:\code\libP2P\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -84,26 +119,32 @@
   <ItemGroup>
     <ClInclude Include="..\src\basic\config.h" />
     <ClInclude Include="..\src\basic\def.h" />
+    <ClInclude Include="..\src\basic\linklist.h" />
     <ClInclude Include="..\src\basic\log.h" />
+    <ClInclude Include="..\src\basic\protocal.h" />
     <ClInclude Include="..\src\basic\tools.h" />
     <ClInclude Include="..\src\basic\uuid.h" />
     <ClInclude Include="..\src\data.h" />
     <ClInclude Include="..\src\libP2P.h" />
     <ClInclude Include="..\src\module\lan\lan.h" />
     <ClInclude Include="..\src\server\server.h" />
+    <ClInclude Include="..\src\session.h" />
     <ClInclude Include="..\src\socket\socket.h" />
     <ClInclude Include="..\src\socket\socket_control.h" />
     <ClInclude Include="..\src\task.h" />
     <ClInclude Include="..\src\thread.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\basic\linklist.c" />
     <ClCompile Include="..\src\basic\log.c" />
     <ClCompile Include="..\src\basic\tools.c" />
     <ClCompile Include="..\src\basic\uuid.c" />
     <ClCompile Include="..\src\data.c" />
     <ClCompile Include="..\src\libP2P.c" />
+    <ClCompile Include="..\src\main.c" />
     <ClCompile Include="..\src\module\lan\lan.c" />
     <ClCompile Include="..\src\server\server.c" />
+    <ClCompile Include="..\src\session.c" />
     <ClCompile Include="..\src\socket\socket.c" />
     <ClCompile Include="..\src\socket\socket_control.c" />
     <ClCompile Include="..\src\task.c" />

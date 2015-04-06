@@ -20,7 +20,7 @@
     <Filter Include="src\module\lan">
       <UniqueIdentifier>{62d3a581-03b0-403c-8775-45e433807ce3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="basic">
+    <Filter Include="src\basic">
       <UniqueIdentifier>{b66abd6d-28bb-48a6-b8b6-12530458edd0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -41,16 +41,16 @@
       <Filter>src\socket</Filter>
     </ClInclude>
     <ClInclude Include="..\src\basic\config.h">
-      <Filter>basic</Filter>
+      <Filter>src\basic</Filter>
     </ClInclude>
     <ClInclude Include="..\src\basic\def.h">
-      <Filter>basic</Filter>
+      <Filter>src\basic</Filter>
     </ClInclude>
     <ClInclude Include="..\src\basic\tools.h">
-      <Filter>basic</Filter>
+      <Filter>src\basic</Filter>
     </ClInclude>
     <ClInclude Include="..\src\basic\uuid.h">
-      <Filter>basic</Filter>
+      <Filter>src\basic</Filter>
     </ClInclude>
     <ClInclude Include="..\src\data.h">
       <Filter>src</Filter>
@@ -65,7 +65,16 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\src\basic\log.h">
-      <Filter>basic</Filter>
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\session.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basic\protocal.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basic\linklist.h">
+      <Filter>src\basic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -82,10 +91,10 @@
       <Filter>src\socket</Filter>
     </ClCompile>
     <ClCompile Include="..\src\basic\tools.c">
-      <Filter>basic</Filter>
+      <Filter>src\basic</Filter>
     </ClCompile>
     <ClCompile Include="..\src\basic\uuid.c">
-      <Filter>basic</Filter>
+      <Filter>src\basic</Filter>
     </ClCompile>
     <ClCompile Include="..\src\data.c">
       <Filter>src</Filter>
@@ -100,7 +109,16 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\basic\log.c">
-      <Filter>basic</Filter>
+      <Filter>src\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\session.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basic\linklist.c">
+      <Filter>src\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\main.c">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
