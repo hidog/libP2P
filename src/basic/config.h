@@ -39,7 +39,7 @@ typedef int		bool;
 #	ifdef LIBP2P_EXPORTS
 #		define LIBP2P_API	__declspec(dllexport)
 #	else
-#		define LIBP2P_API	__declspec(dllimport)
+#		define LIBP2P_API
 #	endif
 #endif
 

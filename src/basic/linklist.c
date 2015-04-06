@@ -4,6 +4,11 @@
 #include "log.h"
 
 
+static int	P2P_LL_pushback_data( LLData_s *linklist, void *data );
+static int	P2P_LL_pushfront_data( LLData_s *linklist, void *data );
+static int	P2P_LL_first_add_data( LLData_s *linklist, void *data );
+
+
 
 /***********************************************************
 	pushback functions.
@@ -29,7 +34,7 @@ LINKLIST_GET_NODE_FUNCTION(LLTest)
 /***********************************************************
 	P2P_LL_first_add_data
 ************************************************************/
-int		P2P_LL_first_add_data( LLData_s *linklist, void *data )
+static int	P2P_LL_first_add_data( LLData_s *linklist, void *data )
 {
 	if( linklist->head != NULL || linklist->tail != NULL || linklist->node != NULL )
 	{
@@ -52,7 +57,7 @@ int		P2P_LL_first_add_data( LLData_s *linklist, void *data )
 /***********************************************************
 	P2P_LL_pushfront_data
 ************************************************************/
-int		P2P_LL_pushfront_data( LLData_s *linklist, void *data )
+static int	P2P_LL_pushfront_data( LLData_s *linklist, void *data )
 {	
 	int		err;
 
@@ -97,7 +102,7 @@ int		P2P_LL_pushfront_data( LLData_s *linklist, void *data )
 /***********************************************************
 	P2P_LL_push_data
 ************************************************************/
-int		P2P_LL_pushback_data( LLData_s *linklist, void *data )
+static int	P2P_LL_pushback_data( LLData_s *linklist, void *data )
 {
 	int		err;
 
@@ -358,13 +363,55 @@ LLData_s*	P2P_LL_init( LL_TYPE_e type )
 
 
 /***********************************************************
+	P2P_LL_clear
+************************************************************/
+void	P2P_LL_clear( LLData_s *linklist )
+{
+	Node_s	*node	=	linklist->head;
+	Node_s	*tmp	=	NULL;
+
+	if( linklist == NULL )
+	{
+		WARNING_LOG("linklist is NULL")
+		return;
+	}
+	if( linklist->head == NULL )
+	{
+#if defined(_DEBUG) | defined(DEBUG)
+		if( linklist->size > 0 )
+			ALARM_LOG("linklist->size > 0")
+#endif
+		WARNING_LOG("linklist->head is NULL")
+		return;
+	}
+
+	// loop clear mem.
+	while( node->next != NULL )
+	{
+		tmp		=	node->next;
+		P2P_free(node);
+		node	=	tmp;
+	}
+	P2P_free(node);		// clear the last node.
+
+	linklist->size	=	0;
+	linklist->head	=	NULL;
+	linklist->tail	=	NULL;
+	linklist->node	=	NULL;
+}
+
+
+
+
+/***********************************************************
 	P2P_LL_free
 ************************************************************/
-LLData_s*	P2P_LL_free( LLData_s *ptr )
+LLData_s*	P2P_LL_free( LLData_s *linklist )
 {
 	// need free list data.
+	P2P_LL_clear(linklist);
 
-	P2P_free(ptr);
+	P2P_free( linklist );
 	return	NULL;
 }
 

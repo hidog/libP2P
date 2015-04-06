@@ -120,11 +120,9 @@ typedef struct	LLData
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ functions. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 LLData_s*	P2P_LL_init( LL_TYPE_e type );
-LLData_s*	P2P_LL_free( LLData_s *ptr );
+LLData_s*	P2P_LL_free( LLData_s *linklist );
 
-int		P2P_LL_pushback_data( LLData_s *linklist, void *data );
-int		P2P_LL_pushfront_data( LLData_s *linklist, void *data );
-int		P2P_LL_first_add_data( LLData_s *linklist, void *data );
+
 void	P2P_LL_set_node_to_head( LLData_s *linklist );
 void	P2P_LL_set_node_to_tail( LLData_s *linklist );
 void	P2P_LL_move_to_next( LLData_s *linklist );
@@ -132,6 +130,7 @@ void	P2P_LL_move_to_prev( LLData_s *linklist );
 int		P2P_LL_size( LLData_s *linklist );
 void	P2P_LL_remove_node( LLData_s *linklist );
 bool	P2P_LL_is_empty( LLData_s *linklist );
+void	P2P_LL_clear( LLData_s *linklist );
 
 
 LINKLIST_PUSHBACK_DECLARE(LLTest)
