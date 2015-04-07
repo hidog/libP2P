@@ -8,6 +8,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testP2P", "..\test\vs2012\t
 		{B138915E-F2AB-4EBC-8A31-41B26C0D9432} = {B138915E-F2AB-4EBC-8A31-41B26C0D9432}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest", "..\gtest\gtest.vcxproj", "{1FF72853-0B5F-4EB1-8093-468A1D2F70B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -26,6 +28,12 @@ Global
 		{BF0346A3-ADBE-4C23-B870-F5B7C800C9C1}.Release|Win32.ActiveCfg = Release|Win32
 		{BF0346A3-ADBE-4C23-B870-F5B7C800C9C1}.Release|Win32.Build.0 = Release|Win32
 		{BF0346A3-ADBE-4C23-B870-F5B7C800C9C1}.test|Win32.ActiveCfg = Debug|Win32
+		{1FF72853-0B5F-4EB1-8093-468A1D2F70B5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1FF72853-0B5F-4EB1-8093-468A1D2F70B5}.Debug|Win32.Build.0 = Debug|Win32
+		{1FF72853-0B5F-4EB1-8093-468A1D2F70B5}.Release|Win32.ActiveCfg = Release|Win32
+		{1FF72853-0B5F-4EB1-8093-468A1D2F70B5}.Release|Win32.Build.0 = Release|Win32
+		{1FF72853-0B5F-4EB1-8093-468A1D2F70B5}.test|Win32.ActiveCfg = Release|Win32
+		{1FF72853-0B5F-4EB1-8093-468A1D2F70B5}.test|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
