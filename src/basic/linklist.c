@@ -390,9 +390,11 @@ void	P2P_LL_clear( LLData_s *linklist )
 	while( node->next != NULL )
 	{
 		tmp		=	node->next;
+		P2P_free(node->data);
 		P2P_free(node);
 		node	=	tmp;
 	}
+	P2P_free(node->data);
 	P2P_free(node);		// clear the last node.
 
 	linklist->size	=	0;

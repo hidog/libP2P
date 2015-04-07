@@ -4,6 +4,14 @@
 #include "basic/linklist.h"
 
 
+#ifdef P2P_CRT_MEMORY_LEAK
+#define _CRTDBG_MAP_ALLOC
+#include <crtdbg.h>
+#endif
+
+
+
+
 int main()
 {
 #if 0
@@ -51,6 +59,13 @@ int main()
 	}
 
 	linklist	=	P2P_LL_free( linklist );
+
+
+
+
+#ifdef P2P_CRT_MEMORY_LEAK
+	_CrtDumpMemoryLeaks();
+#endif
 
 	system("PAUSE");
 	return	0;

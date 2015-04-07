@@ -44,6 +44,20 @@ typedef int		bool;
 #endif
 
 
+// memory leak.
+//#define		P2P_CRT_MEMORY_LEAK			// un-mark, than use CRT memory leak detector.
+
+#if defined(_WIN32) & defined(P2P_CRT_MEMORY_LEAK)
+#	ifdef _DEBUG
+#		define _CRTDBG_MAP_ALLOC
+#		include <crtdbg.h>
+#		define	P2P_malloc	malloc
+#	endif
+#endif
+
+
+
+
 // typedef 
 typedef struct in_addr		P2P_in_addr_t;
 typedef struct hostent		P2P_hostent_t;

@@ -20,7 +20,7 @@
 			ALARM_LOG("Linklist push type error.") \
 			return	P2P_ERROR; \
 		} \
-		data = P2P_malloc( sizeof(TYPE##_s) ); \
+		data = (TYPE##_s*)P2P_malloc( sizeof(TYPE##_s) ); \
 		if( data == NULL ) \
 		{ \
 			ALARM_LOG("Linklist push malloc fail.") \
@@ -46,7 +46,7 @@
 			ALARM_LOG("Linklist push type error.") \
 			return	P2P_ERROR; \
 		} \
-		data = P2P_malloc( sizeof(TYPE##_s) ); \
+		data = (TYPE##_s*)P2P_malloc( sizeof(TYPE##_s) ); \
 		if( data == NULL ) \
 		{ \
 			ALARM_LOG("Linklist push malloc fail.") \
