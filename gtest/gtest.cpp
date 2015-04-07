@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "gtest/gtest.h"
 
+#include "gtest_linklist.h"	
 
 // Test
 TEST( TEST1, TEST2 ) 

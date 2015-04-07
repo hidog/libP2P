@@ -131,6 +131,7 @@ static int	P2P_LL_pushback_data( LLData_s *linklist, void *data )
 			return	P2P_ERROR;
 		}
 		//
+		new_node->data	=	data;
 		prev_node	=	linklist->tail;
 		linklist->tail->next	=	new_node;
 		linklist->tail	=	linklist->tail->next;

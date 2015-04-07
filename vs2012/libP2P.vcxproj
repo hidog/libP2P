@@ -141,7 +141,9 @@
     <ClCompile Include="..\src\basic\uuid.c" />
     <ClCompile Include="..\src\data.c" />
     <ClCompile Include="..\src\libP2P.c" />
-    <ClCompile Include="..\src\main.c" />
+    <ClCompile Include="..\src\main.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\src\module\lan\lan.c" />
     <ClCompile Include="..\src\server\server.c" />
     <ClCompile Include="..\src\session.c" />

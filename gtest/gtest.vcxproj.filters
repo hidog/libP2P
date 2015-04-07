@@ -90,6 +90,9 @@
     <ClInclude Include="..\src\basic\uuid.h">
       <Filter>src\basic</Filter>
     </ClInclude>
+    <ClInclude Include="gtest_linklist.h">
+      <Filter>原始程式檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -140,7 +143,7 @@
     <ClCompile Include="..\src\basic\uuid.c">
       <Filter>src\basic</Filter>
     </ClCompile>
-    <ClCompile Include="linklist.cpp">
+    <ClCompile Include="gtest_linklist.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
   </ItemGroup>
