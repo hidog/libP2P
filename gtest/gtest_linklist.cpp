@@ -68,3 +68,26 @@ TEST( linklist, remove_1 )
 
 	linklist	=	P2P_LL_free( linklist );
 }
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TEST( linklist, general_1 )
+{
+	LLData_s	*linklist	=	P2P_LL_init(LL_TYPE_LLTest);
+	LLTest_s	data;
+	LLTest_s	*ptr;
+	int		i;
+
+	data.d1		=	1;
+	data.d2		=	2;
+	data.d3		=	3;
+	P2P_LL_pushback_LLTest( linklist, &data );
+	EXPECT_EQ( P2P_LL_size(linklist), 1 );
+
+	ptr		=	P2P_LL_get_node_LLTest(linklist);
+	EXPECT_EQ( ptr->d1, 1 );
+	EXPECT_EQ( ptr->d2, 2 );
+	EXPECT_EQ( ptr->d3, 3 );
+	
+	linklist	=	P2P_LL_free( linklist );
+}
