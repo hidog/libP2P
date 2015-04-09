@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="原始程式檔">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="標頭檔">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="資源檔">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{1419dbc2-8f77-48da-9785-34594e383c10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\socket">
+      <UniqueIdentifier>{c7fbab05-355d-4401-bd6c-acbccab64d68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\server">
+      <UniqueIdentifier>{50d3b417-6dc0-4e96-91da-35138fcbd9f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\module">
+      <UniqueIdentifier>{e3952bd2-b590-4585-a40f-146d704d2210}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\module\lan">
+      <UniqueIdentifier>{b7dda0dd-b120-4303-8e04-8171fc786166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\basic">
+      <UniqueIdentifier>{ead2cf14-11f2-4f1d-b469-677c41833778}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\data.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\libP2P.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\session.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\task.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\thread.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\socket\socket.h">
+      <Filter>src\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\socket\socket_control.h">
+      <Filter>src\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\server\server.h">
+      <Filter>src\server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\module\lan\lan.h">
+      <Filter>src\module\lan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basic\config.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basic\def.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basic\linklist.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basic\log.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basic\protocal.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basic\tools.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\basic\uuid.h">
+      <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="gtest_linklist.h">
+      <Filter>原始程式檔</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="gtest.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\data.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\libP2P.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\main.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\session.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\task.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thread.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\socket\socket.c">
+      <Filter>src\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\socket\socket_control.c">
+      <Filter>src\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\server\server.c">
+      <Filter>src\server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\module\lan\lan.c">
+      <Filter>src\module\lan</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basic\linklist.c">
+      <Filter>src\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basic\log.c">
+      <Filter>src\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basic\tools.c">
+      <Filter>src\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\basic\uuid.c">
+      <Filter>src\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="gtest_linklist.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

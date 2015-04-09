@@ -4,7 +4,7 @@
 #include "libP2P.h"
 }*/
 #include "libP2P.h"
-#include "def.h"
+#include "basic/def.h"
 
 
 /***********************************************************
@@ -22,9 +22,10 @@ int		test_p2p()
 
 	while(true)
 	{
-		//printf("wait...\n");
-		P2P_lan_search();
 
+		//P2P_lan_search();
+
+		//printf("wait...\n");
 		Sleep(100);
 	}
 

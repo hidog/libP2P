@@ -1,8 +1,8 @@
 #ifndef LIBP2P_DATA_H
 #define LIBP2P_DATA_H
 
-#include "uuid.h"
-#include "config.h"
+#include "basic/uuid.h"
+#include "basic/config.h"
 
 
 #define		NAME_SIZE		50

@@ -1,11 +1,11 @@
 #include "thread.h"
-#include "config.h"
+#include "basic/config.h"
 #include "data.h"
-#include "tools.h"
+#include "basic/tools.h"
 #include "socket/socket.h"
 #include "thread.h"
 #include "server/server.h"
-#include "def.h"
+#include "basic/def.h"
 
 
 #define MAX_THREADS 10

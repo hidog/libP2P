@@ -1,12 +1,14 @@
 #include "lan.h"
-#include "def.h"
-#include "config.h"
 #include "data.h"
-#include "log.h"
-#include "config.h"
+
+#include "basic/def.h"
+#include "basic/config.h"
+#include "basic/log.h"
+#include "basic/config.h"
 
 /***********************************************************
 	P2P_send_lan_search
+	http://stackoverflow.com/questions/337422/how-to-udp-broadcast-with-c-in-linux
 ************************************************************/
 int		P2P_send_lan_search()
 {

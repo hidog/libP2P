@@ -1,7 +1,7 @@
 #ifndef LIBP2P_LOG_H
 #define LIBP2P_LOG_H
 
-#include "config.h"
+#include "basic/config.h"
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ macros & defines ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

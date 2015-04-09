@@ -48,6 +48,7 @@ void*	P2P_free( void *ptr )
 /***********************************************************
 	P2P_malloc
 ************************************************************/
+#ifndef P2P_CRT_MEMORY_LEAK
 void*		P2P_malloc( int size )
 {
 	void	*ptr	=	NULL;
@@ -61,3 +62,4 @@ void*		P2P_malloc( int size )
 
 	return	ptr;
 }
+#endif

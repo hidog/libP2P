@@ -39,9 +39,23 @@ typedef int		bool;
 #	ifdef LIBP2P_EXPORTS
 #		define LIBP2P_API	__declspec(dllexport)
 #	else
-#		define LIBP2P_API	__declspec(dllimport)
+#		define LIBP2P_API
 #	endif
 #endif
+
+
+// memory leak.
+//#define		P2P_CRT_MEMORY_LEAK			// un-mark, than use CRT memory leak detector.
+
+#if defined(_WIN32) & defined(P2P_CRT_MEMORY_LEAK)
+#	ifdef _DEBUG
+#		define _CRTDBG_MAP_ALLOC
+#		include <crtdbg.h>
+#		define	P2P_malloc	malloc
+#	endif
+#endif
+
+
 
 
 // typedef 

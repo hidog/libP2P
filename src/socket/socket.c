@@ -1,10 +1,10 @@
 #include "socket.h"
-#include "config.h"
+#include "basic/config.h"
 
 #include "data.h"
-#include "log.h"
-#include "tools.h"
-#include "def.h"
+#include "basic/log.h"
+#include "basic/tools.h"
+#include "basic/def.h"
 
 //#ifdef _WIN32
 //#define WIN32_LEAN_AND_MEAN

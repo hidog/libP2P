@@ -1,7 +1,7 @@
 #ifndef P2P_THREAD_H
 #define P2P_THREAD_H
 
-#include "config.h"
+#include "basic/config.h"
 #include <windows.h>
 #include <tchar.h>
 #include <strsafe.h>
