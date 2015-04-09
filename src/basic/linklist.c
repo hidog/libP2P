@@ -30,6 +30,48 @@ LINKLIST_GET_NODE_FUNCTION(LLTest)
 
 
 
+/***********************************************************
+	P2P_LL_move_to
+************************************************************/
+int		P2P_LL_move_to( LLData_s *linklist, int index )
+{
+	int		i;
+
+	if( linklist == NULL )
+	{
+		WARNING_LOG("linklist is NULL")
+		return	P2P_ERROR;
+	}
+	if( P2P_LL_is_empty(linklist) == true )
+	{
+		WARNING_LOG("linklist is empty.")
+		return	P2P_ERROR;
+	}
+
+	//
+	if( index < 0 )
+	{
+		WARNING_LOG("index < 0")
+		P2P_LL_set_node_to_head(linklist);
+		return	P2P_ERROR;
+	}
+	else if( index >= P2P_LL_size(linklist) )
+	{
+		WARNING_LOG("index > list size.")
+		P2P_LL_set_node_to_tail(linklist);
+		return	P2P_ERROR;
+	}
+
+	// note: can have best performance if use move to prev by index > size/2
+	P2P_LL_set_node_to_head(linklist);
+	for( i = 0; i < index; i++ )
+		P2P_LL_move_to_next(linklist);
+	
+	return	P2P_OK;
+}
+
+
+
 
 /***********************************************************
 	P2P_LL_first_add_data
@@ -85,6 +127,7 @@ static int	P2P_LL_pushfront_data( LLData_s *linklist, void *data )
 			ALARM_LOG("linklist push data node malloc fail.")
 			return	P2P_ERROR;
 		}
+		new_node->data	=	data;
 		//
 		next_node	=	linklist->head;
 		linklist->head->prev	=	new_node;

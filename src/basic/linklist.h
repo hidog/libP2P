@@ -128,15 +128,17 @@ void	P2P_LL_set_node_to_tail( LLData_s *linklist );
 void	P2P_LL_move_to_next( LLData_s *linklist );
 void	P2P_LL_move_to_prev( LLData_s *linklist );
 int		P2P_LL_size( LLData_s *linklist );
+
 void	P2P_LL_remove_node( LLData_s *linklist );
 bool	P2P_LL_is_empty( LLData_s *linklist );
 void	P2P_LL_clear( LLData_s *linklist );
-
+int		P2P_LL_move_to( LLData_s *linklist, int index );
 
 LINKLIST_PUSHBACK_DECLARE(LLTest)
 
 LINKLIST_GET_NODE_DECLARE(LLTest)
 
+LINKLIST_PUSHFRONT_DECLARE(LLTest)
 
 
 
