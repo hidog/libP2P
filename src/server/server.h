@@ -1,5 +1,5 @@
-#ifndef P2P_SERVER_H
-#define P2P_SERVER_H
+#ifndef LIBP2P_SERVER_H
+#define LIBP2P_SERVER_H
 
 #include "basic/config.h"
 

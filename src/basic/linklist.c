@@ -4,6 +4,7 @@
 #include "log.h"
 
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ static functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 static int	P2P_LL_pushback_data( LLData_s *linklist, void *data );
 static int	P2P_LL_pushfront_data( LLData_s *linklist, void *data );
 static int	P2P_LL_first_add_data( LLData_s *linklist, void *data );

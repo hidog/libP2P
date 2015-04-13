@@ -12,6 +12,8 @@
 #include "basic/log.h"
 #include "basic/tools.h"
 #include "basic/config.h"
+#include "task.h"
+
 
 /***********************************************************
 	P2P_init
@@ -31,16 +33,21 @@ int P2P_init()
 	// init data
 	P2P_data_init();
 
+	// init task
+	P2P_task_init();
+
 	return 0;
 }
 
 
 
 /***********************************************************
-	P2P_free
+	P2P_release
 ************************************************************/
 int P2P_release()
 {
+	P2P_task_free();
+
 	return 0;
 }
 
@@ -61,7 +68,6 @@ int		P2P_lan_search()
 
 /***********************************************************
 	P2P_set_name
-	need only alphanumeric and _
 ************************************************************/
 int		P2P_set_name( const char *name )
 {
@@ -81,21 +87,6 @@ int		P2P_set_name( const char *name )
 	{
 		ALARM_LOG( "name size too large." )
 		return	P2P_ERROR;
-	}
-	for( i = 0; i < len; i++ )
-	{
-		is	=	false;
-
-		is	|=	name[i] >= 'a' && name[i] <= 'z';
-		is	|=	name[i] >= 'A' && name[i] <= 'Z';
-		is	|=	name[i] >= '0' && name[i] <= '9';
-		is	|=	name[i] == '_';
-
-		if( is == false )
-		{
-			WARNING_LOG("name format error.")
-			return	P2P_ERROR;
-		}
 	}
 
 	// set name
@@ -166,6 +157,7 @@ int		P2P_start()
 
 	P2P_init_broadcast_socket();
 	P2P_create_skt_recv_thread();
+	P2P_task_start();
 	
 	return	0;
 }

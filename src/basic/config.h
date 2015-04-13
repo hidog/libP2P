@@ -65,6 +65,6 @@ typedef struct sockaddr_in	P2P_sockaddr_in_t;
 typedef struct sockaddr		P2P_sockaddr_t;
 typedef	SOCKET	P2P_socket_t;
 typedef HANDLE	P2P_thread_t;
-
+typedef unsigned int	P2P_clock_t;
 
 #endif

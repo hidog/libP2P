@@ -21,6 +21,7 @@ P2P_thread_t	P2P_create_thread( LPSECURITY_ATTRIBUTES lp_thread_attributes,
 								   DWORD dw_creation_flags,
 								   LPDWORD lp_thread_id )
 {
+#ifdef _WIN32
 	P2P_thread_t	thread;
 
 	thread	=	CreateThread( lp_thread_attributes,
@@ -41,7 +42,22 @@ P2P_thread_t	P2P_create_thread( LPSECURITY_ATTRIBUTES lp_thread_attributes,
             pDataArray[i],          // argument to thread function 
             0,                      // use default creation flags 
             &dwThreadIdArray[i]);   // returns the thread identifier */
+#else
+#error	need maintain.
+#endif
+}
 
+
+/***********************************************************
+	P2P_sleep
+************************************************************/
+void	P2P_sleep( P2P_clock_t time )
+{
+#ifdef _WIN32
+	Sleep(time);
+#else
+#error need maintain.
+#endif
 }
 
 
@@ -62,7 +78,7 @@ int		P2P_create_server_socket_thread()
 
 	//
 	for( i = 0; i < server_skt_thr_size; i++ )
-		p_gdata->p_server_skt_thread	=	P2P_create_thread( NULL, 0, P2P_server_udp_skt_recv,
+		*(p_gdata->p_server_skt_thread)	=	P2P_create_thread( NULL, 0, P2P_server_udp_skt_recv,
 															   (void*)&index[i], 0, NULL );
 
 	return	P2P_OK;

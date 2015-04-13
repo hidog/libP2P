@@ -1,7 +1,8 @@
-#ifndef P2P_LINKLIST_H
-#define P2P_LINKLIST_H
+#ifndef LIBP2P_LINKLIST_H
+#define LIBP2P_LINKLIST_H
 
 #include "tools.h"
+#include "def/task_def.h"
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ define ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -85,6 +86,7 @@
 typedef enum	LL_TYPE
 {
 	LL_TYPE_LLTest,
+	LL_TYPE_LLTask,
 } LL_TYPE_e;
 
 
