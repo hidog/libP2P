@@ -5,9 +5,9 @@
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ static functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-static int	P2P_LL_pushback_data( LLData_s *linklist, void *data );
-static int	P2P_LL_pushfront_data( LLData_s *linklist, void *data );
-static int	P2P_LL_first_add_data( LLData_s *linklist, void *data );
+static int	P2P_LL_pushback_data( LinkList_s *linklist, void *data );
+static int	P2P_LL_pushfront_data( LinkList_s *linklist, void *data );
+static int	P2P_LL_first_add_data( LinkList_s *linklist, void *data );
 
 
 
@@ -15,26 +15,29 @@ static int	P2P_LL_first_add_data( LLData_s *linklist, void *data );
 	pushback functions.
 ************************************************************/
 LINKLIST_PUSHBACK_FUNCTION(LLTest)
+LINKLIST_PUSHBACK_FUNCTION(LLTask)
 
 	
 /***********************************************************
 	pushfront functions.
 ************************************************************/
 LINKLIST_PUSHFRONT_FUNCTION(LLTest)
-
+LINKLIST_PUSHFRONT_FUNCTION(LLTask)
 
 	
 /***********************************************************
 	get node functions.
 ************************************************************/
 LINKLIST_GET_NODE_FUNCTION(LLTest)
+LINKLIST_GET_NODE_FUNCTION(LLTask)
+
 
 
 
 /***********************************************************
 	P2P_LL_move_to
 ************************************************************/
-int		P2P_LL_move_to( LLData_s *linklist, int index )
+int		P2P_LL_move_to( LinkList_s *linklist, int index )
 {
 	int		i;
 
@@ -77,7 +80,7 @@ int		P2P_LL_move_to( LLData_s *linklist, int index )
 /***********************************************************
 	P2P_LL_first_add_data
 ************************************************************/
-static int	P2P_LL_first_add_data( LLData_s *linklist, void *data )
+static int	P2P_LL_first_add_data( LinkList_s *linklist, void *data )
 {
 	if( linklist->head != NULL || linklist->tail != NULL || linklist->node != NULL )
 	{
@@ -100,7 +103,7 @@ static int	P2P_LL_first_add_data( LLData_s *linklist, void *data )
 /***********************************************************
 	P2P_LL_pushfront_data
 ************************************************************/
-static int	P2P_LL_pushfront_data( LLData_s *linklist, void *data )
+static int	P2P_LL_pushfront_data( LinkList_s *linklist, void *data )
 {	
 	int		err;
 
@@ -146,7 +149,7 @@ static int	P2P_LL_pushfront_data( LLData_s *linklist, void *data )
 /***********************************************************
 	P2P_LL_push_data
 ************************************************************/
-static int	P2P_LL_pushback_data( LLData_s *linklist, void *data )
+static int	P2P_LL_pushback_data( LinkList_s *linklist, void *data )
 {
 	int		err;
 
@@ -192,7 +195,7 @@ static int	P2P_LL_pushback_data( LLData_s *linklist, void *data )
 /***********************************************************
 	P2P_LL_set_node_to_head
 ************************************************************/
-void	P2P_LL_set_node_to_head( LLData_s *linklist )
+void	P2P_LL_set_node_to_head( LinkList_s *linklist )
 {
 	if( linklist == NULL )
 	{
@@ -210,7 +213,7 @@ void	P2P_LL_set_node_to_head( LLData_s *linklist )
 /***********************************************************
 	P2P_LL_set_node_to_tail
 ************************************************************/
-void	P2P_LL_set_node_to_tail( LLData_s *linklist )
+void	P2P_LL_set_node_to_tail( LinkList_s *linklist )
 {
 	if( linklist == NULL )
 	{
@@ -228,7 +231,7 @@ void	P2P_LL_set_node_to_tail( LLData_s *linklist )
 /***********************************************************
 	P2P_LL_move_to_next
 ************************************************************/
-void	P2P_LL_move_to_next( LLData_s *linklist )
+void	P2P_LL_move_to_next( LinkList_s *linklist )
 {
 	if( linklist == NULL )
 	{
@@ -261,7 +264,7 @@ void	P2P_LL_move_to_next( LLData_s *linklist )
 /***********************************************************
 	P2P_LL_move_to_prev
 ************************************************************/
-void	P2P_LL_move_to_prev( LLData_s *linklist )
+void	P2P_LL_move_to_prev( LinkList_s *linklist )
 {
 	if( linklist == NULL )
 	{
@@ -293,7 +296,7 @@ void	P2P_LL_move_to_prev( LLData_s *linklist )
 /***********************************************************
 	P2P_LL_size
 ************************************************************/
-int		P2P_LL_size( LLData_s *linklist )
+int		P2P_LL_size( LinkList_s *linklist )
 {
 	if( linklist == NULL )
 	{
@@ -309,7 +312,7 @@ int		P2P_LL_size( LLData_s *linklist )
 /***********************************************************
 	P2P_LL_remove_node
 ************************************************************/
-void	P2P_LL_remove_node( LLData_s *linklist )
+void	P2P_LL_remove_node( LinkList_s *linklist )
 {
 	if( linklist == NULL )
 	{
@@ -367,7 +370,7 @@ void	P2P_LL_remove_node( LLData_s *linklist )
 /***********************************************************
 	P2P_LL_is_empty
 ************************************************************/
-bool	P2P_LL_is_empty( LLData_s *linklist )
+bool	P2P_LL_is_empty( LinkList_s *linklist )
 {
 	if( linklist == NULL )
 	{
@@ -386,11 +389,11 @@ bool	P2P_LL_is_empty( LLData_s *linklist )
 /***********************************************************
 	P2P_LL_init
 ************************************************************/
-LLData_s*	P2P_LL_init( LL_TYPE_e type )
+LinkList_s*	P2P_LL_init( LL_TYPE_e type )
 {
-	LLData_s	*ptr	=	NULL;	
+	LinkList_s	*ptr	=	NULL;	
 
-	ptr		=	(LLData_s*)P2P_malloc( sizeof(LLData_s) );
+	ptr		=	(LinkList_s*)P2P_malloc( sizeof(LinkList_s) );
 	if( ptr == NULL )
 		ALARM_LOG("P2P_LL_init fail.")
 	else
@@ -410,7 +413,7 @@ LLData_s*	P2P_LL_init( LL_TYPE_e type )
 /***********************************************************
 	P2P_LL_clear
 ************************************************************/
-void	P2P_LL_clear( LLData_s *linklist )
+void	P2P_LL_clear( LinkList_s *linklist )
 {
 	Node_s	*node	=	linklist->head;
 	Node_s	*tmp	=	NULL;
@@ -453,7 +456,7 @@ void	P2P_LL_clear( LLData_s *linklist )
 /***********************************************************
 	P2P_LL_free
 ************************************************************/
-LLData_s*	P2P_LL_free( LLData_s *linklist )
+LinkList_s*	P2P_LL_free( LinkList_s *linklist )
 {
 	// need free list data.
 	P2P_LL_clear(linklist);

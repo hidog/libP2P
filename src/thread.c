@@ -6,9 +6,11 @@
 #include "thread.h"
 #include "server/server.h"
 #include "def/def.h"
+#include "basic/log.h"
 
 
-#define MAX_THREADS 10
+
+
 
 /***********************************************************
 	P2P_create_thread
@@ -31,8 +33,10 @@ P2P_thread_t	P2P_create_thread( LPSECURITY_ATTRIBUTES lp_thread_attributes,
 							  dw_creation_flags,
 							  lp_thread_id );
 
-	return	thread;
+	if( thread == NULL )
+		ALARM_LOG("create thread fail.")
 
+	return	thread;
 	//HANDLE  hThreadArray[MAX_THREADS]; 
 
 	/*hThreadArray[i] = CreateThread( 
@@ -46,6 +50,93 @@ P2P_thread_t	P2P_create_thread( LPSECURITY_ATTRIBUTES lp_thread_attributes,
 #error	need maintain.
 #endif
 }
+
+
+/***********************************************************
+	P2P_create_thread
+	see https://msdn.microsoft.com/en-us/library/windows/desktop/ms682516%28v=vs.85%29.aspx
+************************************************************/
+P2P_mutex_t		P2P_create_mutex( LPSECURITY_ATTRIBUTES lp_mutex_attributes, BOOL b_initial_owner, LPCTSTR lp_name )
+{
+#ifdef _WIN32
+	P2P_mutex_t		mutex;
+
+	mutex	=	CreateMutex( lp_mutex_attributes, b_initial_owner, lp_name );
+
+	if( mutex == NULL )
+		ALARM_LOG("mutex create fail.")
+
+	return	mutex;
+
+	//return	CreateMutex( lp_mutex_attributes, b_initial_owner, lp_name );
+#else
+#error need maintain.
+#endif
+}
+
+
+
+/***********************************************************
+	P2P_mutex_lock
+	see https://msdn.microsoft.com/en-us/library/windows/desktop/ms682516%28v=vs.85%29.aspx
+************************************************************/
+int		P2P_mutex_lock( P2P_mutex_t mutex )
+{
+#ifdef _WIN32
+	DWORD	dw_wait_result;
+
+	dw_wait_result	=	WaitForSingleObject( mutex, INFINITE );
+
+	if( dw_wait_result == WAIT_ABANDONED )
+	{
+		WARNING_LOG("mutex wait abandoned")
+		return	P2P_ERROR;
+	}
+
+	return	P2P_OK;
+
+#else
+#error nee maintain.
+#endif
+}
+
+
+
+/***********************************************************
+	P2P_mutex_unlock
+************************************************************/
+void	P2P_mutex_unlock( P2P_mutex_t mutex )
+{
+#ifdef _WIN32
+	BOOL	is;
+	is	=	ReleaseMutex(mutex);
+
+	if( is == 0 )
+		WARNING_LOG("mutex unlock fail.")
+#else
+#error need maintain.
+#endif
+}
+
+
+
+
+/***********************************************************
+	P2P_close_mutex
+************************************************************/
+void	P2P_close_mutex( P2P_mutex_t mutex )
+{
+#ifdef _WIN32
+	BOOL	is;
+	is	=	CloseHandle(mutex);
+
+	if( is == 0 )
+		ALARM_LOG("close mutex fail.")
+#else
+#error need maintain.
+#endif
+}
+
 
 
 /***********************************************************

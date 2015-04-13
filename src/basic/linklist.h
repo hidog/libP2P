@@ -8,11 +8,11 @@
 
 //
 #define		LINKLIST_PUSHBACK_DECLARE(TYPE) \
-	int P2P_LL_pushback_##TYPE( LLData_s *linklist, TYPE##_s *in_data ); 
+	int P2P_LL_pushback_##TYPE( LinkList_s *linklist, TYPE##_s *in_data ); 
 
 //
 #define		LINKLIST_PUSHBACK_FUNCTION(TYPE) \
-	int	P2P_LL_pushback_##TYPE( LLData_s *linklist, TYPE##_s *in_data ) \
+	int	P2P_LL_pushback_##TYPE( LinkList_s *linklist, TYPE##_s *in_data ) \
 	{ \
 		int	err; \
 		TYPE##_s *data = NULL; \
@@ -34,11 +34,11 @@
 
 //
 #define		LINKLIST_PUSHFRONT_DECLARE(TYPE) \
-	int P2P_LL_pushfront_##TYPE( LLData_s *linklist, TYPE##_s *in_data ); 
+	int P2P_LL_pushfront_##TYPE( LinkList_s *linklist, TYPE##_s *in_data ); 
 
 //
 #define		LINKLIST_PUSHFRONT_FUNCTION(TYPE) \
-	int	P2P_LL_pushfront_##TYPE( LLData_s *linklist, TYPE##_s *in_data ) \
+	int	P2P_LL_pushfront_##TYPE( LinkList_s *linklist, TYPE##_s *in_data ) \
 	{ \
 		int	err; \
 		TYPE##_s *data = NULL; \
@@ -61,11 +61,11 @@
 
 //
 #define		LINKLIST_GET_NODE_DECLARE(TYPE) \
-	TYPE##_s*	P2P_LL_get_node_##TYPE( LLData_s *linklist );
+	TYPE##_s*	P2P_LL_get_node_##TYPE( LinkList_s *linklist );
 
 //
 #define		LINKLIST_GET_NODE_FUNCTION(TYPE) \
-	TYPE##_s* P2P_LL_get_node_##TYPE( LLData_s *linklist ) \
+	TYPE##_s* P2P_LL_get_node_##TYPE( LinkList_s *linklist ) \
 	{ \
 		if( linklist == NULL ) \
 		{ \
@@ -109,38 +109,44 @@ typedef struct	Node
 } Node_s;
 
 //
-typedef struct	LLData
+typedef struct	LinkList
 {
 	Node_s		*head;
 	Node_s		*tail;
 	Node_s		*node;
 	LL_TYPE_e	type;
 	int			size;
-} LLData_s;
+} LinkList_s;
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ functions. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-LLData_s*	P2P_LL_init( LL_TYPE_e type );
-LLData_s*	P2P_LL_free( LLData_s *linklist );
+LinkList_s*	P2P_LL_init( LL_TYPE_e type );
+LinkList_s*	P2P_LL_free( LinkList_s *linklist );
 
 
-void	P2P_LL_set_node_to_head( LLData_s *linklist );
-void	P2P_LL_set_node_to_tail( LLData_s *linklist );
-void	P2P_LL_move_to_next( LLData_s *linklist );
-void	P2P_LL_move_to_prev( LLData_s *linklist );
-int		P2P_LL_size( LLData_s *linklist );
+void	P2P_LL_set_node_to_head( LinkList_s *linklist );
+void	P2P_LL_set_node_to_tail( LinkList_s *linklist );
+void	P2P_LL_move_to_next( LinkList_s *linklist );
+void	P2P_LL_move_to_prev( LinkList_s *linklist );
+int		P2P_LL_size( LinkList_s *linklist );
 
-void	P2P_LL_remove_node( LLData_s *linklist );
-bool	P2P_LL_is_empty( LLData_s *linklist );
-void	P2P_LL_clear( LLData_s *linklist );
-int		P2P_LL_move_to( LLData_s *linklist, int index );
+void	P2P_LL_remove_node( LinkList_s *linklist );
+bool	P2P_LL_is_empty( LinkList_s *linklist );
+void	P2P_LL_clear( LinkList_s *linklist );
+int		P2P_LL_move_to( LinkList_s *linklist, int index );
+
 
 LINKLIST_PUSHBACK_DECLARE(LLTest)
+LINKLIST_PUSHBACK_DECLARE(LLTask)
+
 
 LINKLIST_GET_NODE_DECLARE(LLTest)
+LINKLIST_GET_NODE_DECLARE(LLTask)
+
 
 LINKLIST_PUSHFRONT_DECLARE(LLTest)
+LINKLIST_PUSHFRONT_DECLARE(LLTask)
 
 
 

@@ -15,7 +15,7 @@
 int main()
 {
 #if 0
-	LLData_s	*linklist	=	P2P_LL_init(LL_TYPE_LLTest);
+	LinkList_s	*linklist	=	P2P_LL_init(LL_TYPE_LLTest);
 
 	LLTest_s	data;
 	LLTest_s	*ptr;
@@ -32,7 +32,7 @@ int main()
 #endif
 
 
-	LLData_s	*linklist	=	P2P_LL_init(LL_TYPE_LLTest);
+	LinkList_s	*linklist	=	P2P_LL_init(LL_TYPE_LLTest);
 	LLTest_s	data;
 	LLTest_s	*ptr;
 	int		i;

@@ -3,11 +3,15 @@
 #include "def/def.h"
 #include "thread.h"
 #include "basic/linklist.h"
-
+#include "basic/config.h"
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ static functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 static DWORD WINAPI		P2P_task_main( void *lp_param );
-//DWORD WINAPI	P2P_skt_recv( void* lp_param )
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ global variable ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+static LinkList_s	*_gp_linklist;	// if modify to non-static variable, be careful thah the name will be conflict.
+static P2P_mutex_t	_g_mutex;
 
 
 
@@ -16,6 +20,9 @@ static DWORD WINAPI		P2P_task_main( void *lp_param );
 ************************************************************/
 int		P2P_task_init()
 {
+	_gp_linklist	=	P2P_LL_init( LL_TYPE_LLTask );
+	_g_mutex		=	P2P_create_mutex( NULL, false, "P2P_task");
+
 	return	P2P_OK;
 }
 
@@ -52,6 +59,8 @@ int		P2P_task_start()
 ************************************************************/
 int		P2P_task_free()
 {
+	_gp_linklist	=	P2P_LL_free(_gp_linklist);
+	P2P_close_mutex(_g_mutex);
 	return	P2P_OK;
 }
 
