@@ -1,7 +1,7 @@
 #include "lan.h"
 #include "data.h"
 
-#include "basic/def.h"
+#include "def/def.h"
 #include "basic/config.h"
 #include "basic/log.h"
 #include "basic/config.h"

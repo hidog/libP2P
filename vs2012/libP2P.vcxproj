@@ -118,13 +118,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\basic\config.h" />
-    <ClInclude Include="..\src\basic\def.h" />
     <ClInclude Include="..\src\basic\linklist.h" />
     <ClInclude Include="..\src\basic\log.h" />
     <ClInclude Include="..\src\basic\protocal.h" />
     <ClInclude Include="..\src\basic\tools.h" />
     <ClInclude Include="..\src\basic\uuid.h" />
     <ClInclude Include="..\src\data.h" />
+    <ClInclude Include="..\src\def\def.h" />
     <ClInclude Include="..\src\libP2P.h" />
     <ClInclude Include="..\src\module\lan\lan.h" />
     <ClInclude Include="..\src\server\server.h" />

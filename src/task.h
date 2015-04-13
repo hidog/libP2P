@@ -1,6 +1,8 @@
 #ifndef LIBP2P_TASK_H
 #define LIBP2P_TASK_H
 
+#include "basic/config.h"
+
 
 int		P2P_task_init();
 int		P2P_task_start();

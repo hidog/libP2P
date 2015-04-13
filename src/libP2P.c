@@ -8,7 +8,7 @@
 
 #include "module/lan/lan.h"
 
-#include "basic/def.h"
+#include "def/def.h"
 #include "basic/log.h"
 #include "basic/tools.h"
 #include "basic/config.h"
@@ -72,7 +72,7 @@ int		P2P_lan_search()
 int		P2P_set_name( const char *name )
 {
 	GlobalData_s	*p_gdata	=	P2P_get_global_data();
-	int		i,	len;
+	int		len;
 	bool	is	=	false;
 
 	if( p_gdata->p_name != NULL )

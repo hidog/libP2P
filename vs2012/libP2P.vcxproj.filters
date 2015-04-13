@@ -23,6 +23,9 @@
     <Filter Include="src\basic">
       <UniqueIdentifier>{b66abd6d-28bb-48a6-b8b6-12530458edd0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\def">
+      <UniqueIdentifier>{bf5afeaa-ad6c-4159-8fe1-694ba1a8a410}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -41,9 +44,6 @@
       <Filter>src\socket</Filter>
     </ClInclude>
     <ClInclude Include="..\src\basic\config.h">
-      <Filter>src\basic</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\basic\def.h">
       <Filter>src\basic</Filter>
     </ClInclude>
     <ClInclude Include="..\src\basic\tools.h">
@@ -75,6 +75,9 @@
     </ClInclude>
     <ClInclude Include="..\src\basic\linklist.h">
       <Filter>src\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\def\def.h">
+      <Filter>src\def</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

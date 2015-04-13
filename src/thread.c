@@ -5,7 +5,7 @@
 #include "socket/socket.h"
 #include "thread.h"
 #include "server/server.h"
-#include "basic/def.h"
+#include "def/def.h"
 
 
 #define MAX_THREADS 10
