@@ -1,8 +1,8 @@
 #include "gtest_linklist.h"
 
-extern "C"{
+/*extern "C"{
 #include "basic/linklist.h"
-}
+}*/
 
 #include "gtest/gtest.h"
 

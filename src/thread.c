@@ -16,7 +16,7 @@
 	P2P_create_thread
 	see https://msdn.microsoft.com/en-us/library/windows/desktop/ms682516%28v=vs.85%29.aspx
 ************************************************************/
-P2P_thread_t	P2P_create_thread( LPSECURITY_ATTRIBUTES lp_thread_attributes,
+P2P_thread_t	P2P_thread_create( LPSECURITY_ATTRIBUTES lp_thread_attributes,
 								   SIZE_T dw_stack_size,
 								   LPTHREAD_START_ROUTINE lp_start_address,
 								   LPVOID lp_parameter,
@@ -52,11 +52,28 @@ P2P_thread_t	P2P_create_thread( LPSECURITY_ATTRIBUTES lp_thread_attributes,
 }
 
 
+
+/***********************************************************
+	P2P_init_mutex
+	windows use critical section to get better performance.
+	windows also have mutex. see MSDN. CreateMutex.
+************************************************************/
+void	P2P_mutex_init( P2P_mutex_t *p_mutex )
+{
+#ifdef _WIN32
+	InitializeCriticalSection(p_mutex);
+#else
+#error need maintain.
+#endif
+}
+
+
+
 /***********************************************************
 	P2P_create_thread
-	see https://msdn.microsoft.com/en-us/library/windows/desktop/ms682516%28v=vs.85%29.aspx
+	An mutex example.
 ************************************************************/
-P2P_mutex_t		P2P_create_mutex( LPSECURITY_ATTRIBUTES lp_mutex_attributes, BOOL b_initial_owner, LPCTSTR lp_name )
+/*P2P_mutex_t		P2P_create_mutex( LPSECURITY_ATTRIBUTES lp_mutex_attributes, BOOL b_initial_owner, LPCTSTR lp_name )
 {
 #ifdef _WIN32
 	P2P_mutex_t		mutex;
@@ -72,7 +89,7 @@ P2P_mutex_t		P2P_create_mutex( LPSECURITY_ATTRIBUTES lp_mutex_attributes, BOOL b
 #else
 #error need maintain.
 #endif
-}
+}*/
 
 
 
@@ -80,20 +97,20 @@ P2P_mutex_t		P2P_create_mutex( LPSECURITY_ATTRIBUTES lp_mutex_attributes, BOOL b
 	P2P_mutex_lock
 	see https://msdn.microsoft.com/en-us/library/windows/desktop/ms682516%28v=vs.85%29.aspx
 ************************************************************/
-int		P2P_mutex_lock( P2P_mutex_t mutex )
+void	P2P_mutex_lock( P2P_mutex_t *p_mutex )
 {
 #ifdef _WIN32
-	DWORD	dw_wait_result;
 
+	/*DWORD	dw_wait_result;
 	dw_wait_result	=	WaitForSingleObject( mutex, INFINITE );
-
 	if( dw_wait_result == WAIT_ABANDONED )
 	{
 		WARNING_LOG("mutex wait abandoned")
 		return	P2P_ERROR;
 	}
+	return	P2P_OK;*/
 
-	return	P2P_OK;
+	EnterCriticalSection( p_mutex );
 
 #else
 #error nee maintain.
@@ -102,17 +119,32 @@ int		P2P_mutex_lock( P2P_mutex_t mutex )
 
 
 
+
+/***********************************************************
+	P2P_thread_join
+************************************************************/
+void	P2P_thread_join( P2P_thread_t thread )
+{
+#ifdef _WIN32
+	WaitForSingleObject( thread, INFINITE );
+#else
+#error need maintain.
+#endif
+}
+
+
+
 /***********************************************************
 	P2P_mutex_unlock
 ************************************************************/
-void	P2P_mutex_unlock( P2P_mutex_t mutex )
+void	P2P_mutex_unlock( P2P_mutex_t *p_mutex )
 {
 #ifdef _WIN32
-	BOOL	is;
+	/*BOOL	is;
 	is	=	ReleaseMutex(mutex);
-
 	if( is == 0 )
-		WARNING_LOG("mutex unlock fail.")
+		WARNING_LOG("mutex unlock fail.")*/
+	LeaveCriticalSection( p_mutex );
 #else
 #error need maintain.
 #endif
@@ -124,14 +156,14 @@ void	P2P_mutex_unlock( P2P_mutex_t mutex )
 /***********************************************************
 	P2P_close_mutex
 ************************************************************/
-void	P2P_close_mutex( P2P_mutex_t mutex )
+void	P2P_mutex_close( P2P_mutex_t *p_mutex )
 {
 #ifdef _WIN32
-	BOOL	is;
+	/*BOOL	is;
 	is	=	CloseHandle(mutex);
-
 	if( is == 0 )
-		ALARM_LOG("close mutex fail.")
+		ALARM_LOG("close mutex fail.")*/
+	DeleteCriticalSection(p_mutex);
 #else
 #error need maintain.
 #endif
@@ -169,7 +201,7 @@ int		P2P_create_server_socket_thread()
 
 	//
 	for( i = 0; i < server_skt_thr_size; i++ )
-		*(p_gdata->p_server_skt_thread)	=	P2P_create_thread( NULL, 0, P2P_server_udp_skt_recv,
+		*(p_gdata->p_server_skt_thread)	=	P2P_thread_create( NULL, 0, P2P_server_udp_skt_recv,
 															   (void*)&index[i], 0, NULL );
 
 	return	P2P_OK;
@@ -188,7 +220,7 @@ int		P2P_create_skt_recv_thread()
 	//p_gdata->p_server_skt_thread	=	(P2P_thread_t*)P2P_malloc( sizeof(P2P_thread_t) * server_skt_thr_size );
 
 	//
-	P2P_create_thread( NULL, 0, P2P_skt_recv, NULL, 0, NULL );
+	P2P_thread_create( NULL, 0, P2P_skt_recv, NULL, 0, NULL );
 
 	return	P2P_OK;
 }
