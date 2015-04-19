@@ -30,6 +30,14 @@ typedef int		bool;
 #error need maintain.
 #endif
 
+typedef struct in_addr		P2P_in_addr_t;
+typedef struct hostent		P2P_hostent_t;
+typedef struct sockaddr_in	P2P_sockaddr_in_t;
+typedef struct sockaddr		P2P_sockaddr_t;
+typedef	SOCKET	P2P_socket_t;
+
+
+
 
 // thread
 #ifdef _WIN32
@@ -41,6 +49,11 @@ typedef int		bool;
 #error need maintain.
 #endif
 
+#define THREAD_INIT_VALUE	NULL
+typedef HANDLE	P2P_thread_t;
+
+//typedef HANDLE	P2P_mutex_t;
+typedef CRITICAL_SECTION	P2P_mutex_t;
 
 
 
@@ -68,16 +81,6 @@ typedef int		bool;
 
 
 
-// typedef 
-typedef struct in_addr		P2P_in_addr_t;
-typedef struct hostent		P2P_hostent_t;
-typedef struct sockaddr_in	P2P_sockaddr_in_t;
-typedef struct sockaddr		P2P_sockaddr_t;
-typedef	SOCKET	P2P_socket_t;
-typedef HANDLE	P2P_thread_t;
-
-//typedef HANDLE	P2P_mutex_t;
-typedef CRITICAL_SECTION	P2P_mutex_t;
 
 typedef unsigned int	P2P_clock_t;
 

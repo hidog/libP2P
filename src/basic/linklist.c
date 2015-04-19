@@ -32,6 +32,11 @@ LINKLIST_GET_NODE_FUNCTION(LLTest)
 LINKLIST_GET_NODE_FUNCTION(LLTask)
 
 
+/***********************************************************
+	is tail functions.
+************************************************************/
+LINKLIST_IS_TAIL_FUNCTION(LLTest)
+LINKLIST_IS_TAIL_FUNCTION(LLTask)
 
 
 /***********************************************************

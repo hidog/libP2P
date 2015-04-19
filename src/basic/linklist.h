@@ -80,6 +80,76 @@
 		return (TYPE##_s*)(linklist->node->data); \
 	}
 
+//
+#define		LINKLIST_IS_TAIL_DECLARE(TYPE) \
+	bool	P2P_LL_is_tail_##TYPE( LinkList_s *linklist, TYPE##_s *ptr ); 
+
+//
+#define		LINKLIST_IS_TAIL_FUNCTION(TYPE) \
+	bool	P2P_LL_is_tail_##TYPE( LinkList_s *linklist, TYPE##_s *ptr ) \
+	{ \
+		if( linklist == NULL ) \
+		{ \
+			WARNING_LOG("linklist == NULL") \
+			return	false; \
+		} \
+		if( ptr == NULL ) \
+		{ \
+			WARNING_LOG("ptr is NULL") \
+			return	false; \
+		} \
+		if( linklist->tail == NULL ) \
+		{ \
+			WARNING_LOG("tail is NULL") \
+			return	false; \
+		} \
+		if( linklist->tail->data == NULL ) \
+		{ \
+			WARNING_LOG("data is NULL") \
+			return	false; \
+		} \
+		if( ptr == (TYPE##_s*)(linklist->tail->data) ) \
+			return true; \
+		else \
+			return false; \
+	}
+
+
+//
+#define		LINKLIST_IS_HEAD_DECLARE(TYPE) \
+	bool	P2P_LL_is_head_##TYPE( LinkList_s *linklist, TYPE##_s *ptr ); 
+
+//
+#define		LINKLIST_IS_HEAD_FUNCTION(TYPE) \
+	bool	P2P_LL_is_head_##TYPE( LinkList_s *linklist, TYPE##_s *ptr ) \
+	{ \
+		if( linklist == NULL ) \
+		{ \
+			WARNING_LOG("linklist == NULL") \
+			return	false; \
+		} \
+		if( ptr == NULL ) \
+		{ \
+			WARNING_LOG("ptr is NULL") \
+			return	false; \
+		} \
+		if( linklist->head == NULL ) \
+		{ \
+			WARNING_LOG("tail is NULL") \
+			return	false; \
+		} \
+		if( linklist->head->data == NULL ) \
+		{ \
+			WARNING_LOG("data is NULL") \
+			return	false; \
+		} \
+		if( ptr == (TYPE##_s*)(linklist->head->data) ) \
+			return true; \
+		else \
+			return false; \
+	}
+
+
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ enum ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -135,19 +205,22 @@ void	P2P_LL_remove_node( LinkList_s *linklist );
 bool	P2P_LL_is_empty( LinkList_s *linklist );
 void	P2P_LL_clear( LinkList_s *linklist );
 int		P2P_LL_move_to( LinkList_s *linklist, int index );
+void*	P2P_LL_get_head();
+void*	P2P_LL_get_head();
+
 
 
 LINKLIST_PUSHBACK_DECLARE(LLTest)
 LINKLIST_PUSHBACK_DECLARE(LLTask)
 
-
 LINKLIST_GET_NODE_DECLARE(LLTest)
 LINKLIST_GET_NODE_DECLARE(LLTask)
-
 
 LINKLIST_PUSHFRONT_DECLARE(LLTest)
 LINKLIST_PUSHFRONT_DECLARE(LLTask)
 
+LINKLIST_IS_TAIL_DECLARE(LLTest)
+LINKLIST_IS_TAIL_DECLARE(LLTask)
 
 
 #endif

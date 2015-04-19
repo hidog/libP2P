@@ -9,6 +9,7 @@
 /***********************************************************
 	P2P_send_lan_search
 	http://stackoverflow.com/questions/337422/how-to-udp-broadcast-with-c-in-linux
+	http://www.dotblogs.com.tw/larrynung/archive/2012/01/13/65678.aspx
 ************************************************************/
 int		P2P_send_lan_search()
 {
