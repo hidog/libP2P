@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>766E0849-CE1A-4E37-A6F7-F3E5E8F44F54</string>
+	<key>IDESourceControlProjectName</key>
+	<string>libP2P</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>51208EB316A2C502399597FB334DF6125D765C4A</key>
+		<string>https://github.com/hidog/libP2P.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>xcode/libP2P.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>51208EB316A2C502399597FB334DF6125D765C4A</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/hidog/libP2P.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>51208EB316A2C502399597FB334DF6125D765C4A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>51208EB316A2C502399597FB334DF6125D765C4A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>libP2P</string>
+		</dict>
+	</array>
+</dict>
+</plist>

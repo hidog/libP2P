@@ -32,9 +32,9 @@ int		P2P_open_udp_server_socket()
 	{          
 		// Create a socket
 		p_gdata->p_udp_server_skt[i]	=	socket( AF_INET, SOCK_DGRAM, IPPROTO_UDP );
-		if( p_gdata->p_udp_server_skt[i] == INVALID_SOCKET)
+		if( p_gdata->p_udp_server_skt[i] == P2P_INVALID_SKT )
 		{
-			ALARM_LOG( "Could not create socket: %d" , WSAGetLastError() );
+			ALARM_LOG( "Could not create socket: %d" , P2P_SKT_GET_ERR );
 			return	P2P_ERROR;
 		}
      

@@ -6,9 +6,12 @@
 
 
 
-
+#ifdef _WIN32
 P2P_thread_t	P2P_thread_create( LPSECURITY_ATTRIBUTES lp_thread_attributes, SIZE_T dw_stack_size, LPTHREAD_START_ROUTINE lp_start_address, 
 								   LPVOID lp_parameter, DWORD dw_creation_flags, LPDWORD lp_thread_id );
+#else
+P2P_thread_t    P2P_thread_create( pthread_t *thr, const pthread_attr_t *attr, void *(*func)( void* ), void *arg );
+#endif
 
 void			P2P_thread_join( P2P_thread_t thread );
 

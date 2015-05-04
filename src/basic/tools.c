@@ -92,11 +92,13 @@ P2P_clock_t	P2P_clock()
 	return	clock;*/
 	return	GetTickCount();
 #else
-struct timeval tp;
-gettimeofday(&tp, NULL);
-long int ms = tp.tv_sec * 1000 + tp.tv_usec / 1000; //get current timestamp in milliseconds
+    struct timeval  tp;
+    P2P_clock_t     clock;
+    gettimeofday( &tp, NULL );
+    
+    clock   =   tp.tv_sec*1000 + tp.tv_usec/1000; //get current timestamp in milliseconds
 
-cout << ms << endl;
+    return  clock;
 #endif
 }
 

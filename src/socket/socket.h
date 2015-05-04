@@ -14,8 +14,11 @@ int		P2P_get_my_lan_ip( P2P_in_addr_t *p_my_lan_ip );
 int		P2P_init_broadcast_socket();
 
 
+#ifdef _WIN32
 DWORD WINAPI	P2P_skt_recv( void* lp_param );
-
+#else
+int             P2P_skt_recv( void );
+#endif
 
 
 #ifdef _WIN32

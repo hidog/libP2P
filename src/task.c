@@ -6,7 +6,11 @@
 #include "basic/config.h"
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ static functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-static DWORD WINAPI		P2P_task_main( void *lp_param );
+#ifdef _WIN32
+static DWORD WINAPI		P2P_task_main( void *param );
+#else
+static void     P2P_task_main( void *param );
+#endif
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ global variable ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -31,7 +35,11 @@ int		P2P_task_init()
 /***********************************************************
 	P2P_init_task
 ************************************************************/
-static DWORD WINAPI		P2P_task_main( void *lp_param )
+#ifdef _WIN32
+static DWORD WINAPI		P2P_task_main( void *param )
+#else
+static void     P2P_task_main( void *param )
+#endif
 {
 	while(true)
 	{
@@ -47,8 +55,12 @@ static DWORD WINAPI		P2P_task_main( void *lp_param )
 ************************************************************/
 int		P2P_task_start()
 {
+#ifdef _WIN32
 	P2P_thread_create( NULL, 0, P2P_task_main, NULL, 0, NULL );
-
+#else
+    P2P_thread_create( NULL, NULL, P2P_task_main, NULL );
+#endif
+    
 	return	P2P_OK;
 }
 

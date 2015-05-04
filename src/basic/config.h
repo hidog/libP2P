@@ -20,14 +20,23 @@ typedef int		bool;
 
 // socket
 #ifdef _WIN32
-#include <WinSock2.h>
-#include <iphlpapi.h>   //For SendARP
-#include <ws2tcpip.h>
+#i  nclude <WinSock2.h>
+#   include <iphlpapi.h>   //For SendARP
+#   include <ws2tcpip.h>
 //#include <windows.h>
 //#include <winsock2.h>
 //#include <ws2tcpip.h>
+#   define P2P_INVALID_SKT  INVALID_SOCKET
+#   define P2P_SKT_GET_ERR  WSAGetLastError()
 #else
-#error need maintain.
+#   include <sys/types.h>
+#   include <sys/socket.h>
+#   include <netinet/in.h>
+#   include <netinet/ip.h>
+#   include <arpa/inet.h>
+#   include <errno.h>
+#   define P2P_INVALID_SKT  -1
+#   define P2P_SKT_GET_ERR  errno
 #endif
 
 
@@ -38,7 +47,7 @@ typedef int		bool;
 #include <strsafe.h>
 #include <WinBase.h>
 #else
-#error need maintain.
+#include <pthread.h>
 #endif
 
 
@@ -51,6 +60,8 @@ typedef int		bool;
 #	else
 #		define LIBP2P_API
 #	endif
+#else
+#   define LIBP2P_API
 #endif
 
 
@@ -73,11 +84,16 @@ typedef struct in_addr		P2P_in_addr_t;
 typedef struct hostent		P2P_hostent_t;
 typedef struct sockaddr_in	P2P_sockaddr_in_t;
 typedef struct sockaddr		P2P_sockaddr_t;
-typedef	SOCKET	P2P_socket_t;
-typedef HANDLE	P2P_thread_t;
-
-//typedef HANDLE	P2P_mutex_t;
+#ifdef _WIN32
+typedef	SOCKET              P2P_socket_t;
+typedef HANDLE              P2P_thread_t;
 typedef CRITICAL_SECTION	P2P_mutex_t;
+#else
+typedef int                 P2P_socket_t;
+typedef pthread_t           P2P_thread_t;
+typedef pthread_mutex_t     P2P_mutex_t;
+#endif
+//typedef HANDLE	P2P_mutex_t;
 
 typedef unsigned int	P2P_clock_t;
 
