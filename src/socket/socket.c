@@ -10,17 +10,22 @@
 //#define WIN32_LEAN_AND_MEAN
 //#endif
 
+#ifdef _WIN32
 #pragma comment ( lib, "Ws2_32.lib" )
 //#pragma comment ( lib, "Mswsock.lib")
 //#pragma comment ( lib, "AdvApi32.lib")
 #pragma comment ( lib, "iphlpapi.lib")		// for iphlpapi
-
+#endif
 
 
 /***********************************************************
 	P2P_skt_recv
 ************************************************************/
-DWORD WINAPI	P2P_skt_recv( void* lp_param )
+#ifdef _WIN32
+DWORD WINAPI	P2P_skt_recv( void* param )
+#else
+void    P2P_skt_recv( void *param )
+#endif
 {
 	int		count	=	0;
 	P2P_socket_t	skt		=	P2P_get_global_data()->bcast_skt;
@@ -45,7 +50,9 @@ DWORD WINAPI	P2P_skt_recv( void* lp_param )
 		Sleep(10);
 	}
 
+#ifdef _WIN32
 	return	1;
+#endif
 }
 
 
