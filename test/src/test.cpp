@@ -22,7 +22,6 @@ int		test_p2p()
 
 	while(true)
 	{
-
 		//P2P_lan_search();
 
 		//printf("wait...\n");

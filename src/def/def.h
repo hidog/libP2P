@@ -14,7 +14,13 @@
 #define		MASK_MACRO(DATA,MASK)	(DATA&MASK)
 
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ struct ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ task ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//
+enum TASK_TYPE
+{
+	TASK_LAN_SEARCH,
+};
 
 //
 typedef struct LLTask
@@ -22,6 +28,7 @@ typedef struct LLTask
 	int		sid;
 	int		round;
 	P2P_clock_t	time_interval;
+	TASK_TYPE	task_type;
 
 } LLTask_s;
 

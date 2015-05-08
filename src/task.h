@@ -4,11 +4,14 @@
 #include "basic/config.h"
 
 
+
+
+
 int		P2P_task_init();
 int		P2P_task_start();
 int		P2P_task_free();
 
-int		P2P_task_add( int sid, int round, P2P_clock_t time_interval );
+int		P2P_task_add( int sid, TASK_TYPE task_type, int round, P2P_clock_t time_interval );
 
 
 #endif
