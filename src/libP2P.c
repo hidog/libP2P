@@ -72,8 +72,8 @@ int		P2P_lan_search()
 int		P2P_set_name( const char *name )
 {
 	GlobalData_s	*p_gdata	=	P2P_get_global_data();
-	int		len;
-	bool	is	=	false;
+	unsigned int	len;
+	//bool	is	=	false;
 
 	if( p_gdata->p_name != NULL )
 	{
@@ -105,8 +105,8 @@ int		P2P_set_name( const char *name )
 int		P2P_set_passwd( const char *passwd )
 {
 	GlobalData_s	*p_gdata	=	P2P_get_global_data();
-	int		len;
-	bool	is	=	false;
+	unsigned int	len;
+	//bool	is	=	false;
 
 	if( p_gdata->p_passwd != NULL )
 	{

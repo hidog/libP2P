@@ -4,6 +4,15 @@
 #include "basic/config.h"
 
 
+#ifdef _WIN32
+#   define P2P_SOCKET_ERROR     SOCKET_ERROR
+#   define P2P_SKT_GET_ERR      WSAGetLastError()
+#   define P2P_INVALID_SOCKET   INVALID_SOCKET
+#else
+#   define P2P_SOCKET_ERROR     -1
+#   define P2P_SKT_GET_ERR      errno
+#   define P2P_INVALID_SOCKET   -1
+#endif
 
 
 int		P2P_socket_init();
@@ -15,9 +24,9 @@ int		P2P_init_broadcast_socket();
 
 
 #ifdef _WIN32
-DWORD WINAPI	P2P_skt_recv( void* lp_param );
+DWORD WINAPI	P2P_skt_recv( void* param );
 #else
-int             P2P_skt_recv( void );
+int             P2P_skt_recv( void* param );
 #endif
 
 

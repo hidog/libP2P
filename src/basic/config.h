@@ -7,8 +7,14 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdint.h>
-#include <time.h>
 #include <stdlib.h>
+
+#ifdef _WIN32
+#include <time.h>
+#else
+#include <sys/time.h>
+#include <unistd.h>
+#endif
 
 // boolean
 #ifndef __cplusplus
@@ -17,6 +23,9 @@ typedef int		bool;
 #define true	1
 #endif
 
+
+// see http://stackoverflow.com/questions/10053788/implicit-declaration-of-function-usleep
+// the warning implicit declaration of function usleep in C99
 
 // socket
 #ifdef _WIN32
@@ -35,6 +44,7 @@ typedef int		bool;
 #   include <netinet/ip.h>
 #   include <arpa/inet.h>
 #   include <errno.h>
+#   include <netdb.h>
 #   define P2P_INVALID_SKT  -1
 #   define P2P_SKT_GET_ERR  errno
 #endif
@@ -95,6 +105,6 @@ typedef pthread_mutex_t     P2P_mutex_t;
 #endif
 //typedef HANDLE	P2P_mutex_t;
 
-typedef unsigned int	P2P_clock_t;
+typedef unsigned long long	P2P_clock_t;
 
 #endif

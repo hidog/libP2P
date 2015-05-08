@@ -24,7 +24,7 @@
 #ifdef _WIN32
 DWORD WINAPI	P2P_skt_recv( void* param )
 #else
-void    P2P_skt_recv( void *param )
+int    P2P_skt_recv( void *param )
 #endif
 {
 	int		count	=	0;
@@ -47,12 +47,12 @@ void    P2P_skt_recv( void *param )
 			printf("buf = %s\n", buf);
 		}
 
-		Sleep(10);
+		P2P_sleep(10);
 	}
 
-#ifdef _WIN32
+//#ifdef _WIN32
 	return	1;
-#endif
+//#endif
 }
 
 
@@ -157,7 +157,8 @@ void	P2P_get_mac_addr( unsigned char mac[12] , P2P_in_addr_t dest_ip )
 	else
 		memset( mac, 0, mac_len );
 #else
-#error need maintain.
+//#error need maintain.
+    assert(0);
 #endif
 }
 
@@ -176,16 +177,16 @@ int		P2P_init_broadcast_socket()
 	int		bcast_enable	=	1;
 
 	p_gdata->bcast_skt	=	socket( AF_INET, SOCK_DGRAM, 0 );
-	if( p_gdata->bcast_skt == INVALID_SOCKET )
+	if( p_gdata->bcast_skt == P2P_INVALID_SOCKET )
 	{
-		ALARM_LOG( "Could not create socket: %d" , WSAGetLastError() );
+		ALARM_LOG( "Could not create socket: %d" , P2P_SKT_GET_ERR );
 		return	P2P_ERROR;
 	}
 
 	err		=	setsockopt( p_gdata->bcast_skt, SOL_SOCKET, SO_BROADCAST, (char*)&bcast_enable, sizeof(bcast_enable) ); 
-	if( err == INVALID_SOCKET )
+	if( err == P2P_INVALID_SOCKET )
 	{
-		ALARM_LOG( "Could not create socket: %d" , WSAGetLastError() );
+		ALARM_LOG( "Could not create socket: %d" , P2P_SKT_GET_ERR );
 		return	P2P_ERROR;
 	}
 
@@ -194,9 +195,9 @@ int		P2P_init_broadcast_socket()
 	addr.sin_port			=	htons( 3330 );
 
 	err		=	bind( p_gdata->bcast_skt, (P2P_sockaddr_t*)&addr, sizeof(addr) ); 
-	if( err == INVALID_SOCKET )
+	if( err == P2P_INVALID_SOCKET )
 	{
-		ALARM_LOG( "Could not create socket: %d" , WSAGetLastError() );
+		ALARM_LOG( "Could not create socket: %d" , P2P_SKT_GET_ERR );
 		return	P2P_ERROR;
 	}
 
@@ -220,7 +221,7 @@ int		P2P_get_my_lan_ip( P2P_in_addr_t *p_my_lan_ip )
 	P2P_hostent_t	*phe	=	NULL; 
 
 	ret	=	gethostname( str, sizeof(str) );
-	assert( ret != SOCKET_ERROR );
+	assert( ret != P2P_SOCKET_ERROR );
 
     phe	=	gethostbyname(str);
 	assert( phe != NULL );

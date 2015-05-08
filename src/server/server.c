@@ -5,6 +5,7 @@
 #include "basic/config.h"
 #include "basic/tools.h"
 #include "basic/log.h"
+#include "socket/socket.h"
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ global variable ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -45,9 +46,9 @@ int		P2P_open_udp_server_socket()
      
 		//Bind
 		err		=	bind( p_gdata->p_udp_server_skt[i], (P2P_sockaddr_t*)&server_addr_in, sizeof(server_addr_in) ); 
-		if( err == SOCKET_ERROR )
+		if( err == P2P_SOCKET_ERROR )
 		{
-			ALARM_LOG("Bind failed with error code: %d" , WSAGetLastError());
+			ALARM_LOG("Bind failed with error code: %d" , P2P_SKT_GET_ERR );
 			return	P2P_ERROR;
 		}
 	}
@@ -67,7 +68,7 @@ int		P2P_open_udp_server_socket()
         //try to receive some data, this is a blocking call
         if ((recv_len = recvfrom(s, buf, BUFLEN, 0, (struct sockaddr *) &si_other, &slen)) == SOCKET_ERROR)
         {
-            printf("recvfrom() failed with error code : %d" , WSAGetLastError());
+            printf("recvfrom() failed with error code : %d" , P2P_SKT_GET_ERR );
             exit(EXIT_FAILURE);
         }
          
@@ -78,7 +79,7 @@ int		P2P_open_udp_server_socket()
         //now reply the client with the same data
         if (sendto(s, buf, recv_len, 0, (struct sockaddr*) &si_other, slen) == SOCKET_ERROR)
         {
-            printf("sendto() failed with error code : %d" , WSAGetLastError());
+            printf("sendto() failed with error code : %d" , P2P_SKT_GET_ERR );
             exit(EXIT_FAILURE);
         }
     }
@@ -119,7 +120,11 @@ int		P2P_open_server_socket()
 
 	https://msdn.microsoft.com/en-us/library/windows/desktop/ms740506%28v=vs.85%29.aspx   socket 
 ************************************************************/
+#ifdef _WIN32
 DWORD WINAPI	P2P_server_udp_skt_recv( void* lp_param )
+#else
+void    P2P_server_udp_skt_recv( void* lp_param )
+#endif
 {
 	GlobalData_s		*p_gdata	=	P2P_get_global_data();
 	P2P_sockaddr_in_t	addr_in;
@@ -141,8 +146,8 @@ DWORD WINAPI	P2P_server_udp_skt_recv( void* lp_param )
          
         //try to receive some data, this is a blocking call
 		err		=	recvfrom( p_gdata->p_udp_server_skt[index], buf, buf_len, 0, (P2P_sockaddr_t*)&addr_in, &recv_len );
-        if( err == SOCKET_ERROR )
-            ALARM_LOG( "recvfrom() failed with error code : %d" , WSAGetLastError() )
+        if( err == P2P_SOCKET_ERROR )
+            ALARM_LOG( "recvfrom() failed with error code : %d" , P2P_SKT_GET_ERR )
 		else
 			LOG( "recv = %s", buf );
          
@@ -153,9 +158,11 @@ DWORD WINAPI	P2P_server_udp_skt_recv( void* lp_param )
         //now reply the client with the same data
         /*if (sendto(s, buf, recv_len, 0, (struct sockaddr*) &si_other, slen) == SOCKET_ERROR)
         {
-            printf("sendto() failed with error code : %d" , WSAGetLastError());
+            printf("sendto() failed with error code : %d" , P2P_SKT_GET_ERR );
             exit(EXIT_FAILURE);
         }*/
     }
+#ifdef _WIN32
 	return	0;
+#endif
 }

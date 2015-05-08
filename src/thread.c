@@ -162,6 +162,7 @@ void	P2P_mutex_unlock( P2P_mutex_t *p_mutex )
 
 /***********************************************************
 	P2P_close_mutex
+    need free pointer p_mutex!!
 ************************************************************/
 void	P2P_mutex_close( P2P_mutex_t *p_mutex )
 {
@@ -172,7 +173,8 @@ void	P2P_mutex_close( P2P_mutex_t *p_mutex )
 		ALARM_LOG("close mutex fail.")*/
 	DeleteCriticalSection(p_mutex);
 #else
-    phtread_mutex_destroy(p_mutex);
+    //phtread_mutex_destroy(&p_mutex);
+    P2P_free( p_mutex );
 #endif
 }
 

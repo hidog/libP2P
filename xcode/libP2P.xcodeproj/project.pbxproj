@@ -23,6 +23,7 @@
 		6D3661D41AF7B77800629175 /* socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661B71AF7B6AD00629175 /* socket.c */; };
 		6D3661D51AF7B77800629175 /* task.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A71AF7B61F00629175 /* task.c */; };
 		6D3661D61AF7B77800629175 /* thread.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A91AF7B61F00629175 /* thread.c */; };
+		6D6C9B801AFC712700B017AF /* libpthread.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6C9B7F1AFC712700B017AF /* libpthread.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		6D3661C01AF7B70800629175 /* libP2P.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libP2P.h; sourceTree = "<group>"; };
 		6D3661C21AF7B70800629175 /* libP2PPriv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libP2PPriv.h; sourceTree = "<group>"; };
 		6D3661C41AF7B70800629175 /* libP2P.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = libP2P.cp; sourceTree = "<group>"; };
+		6D6C9B7F1AFC712700B017AF /* libpthread.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpthread.dylib; path = usr/lib/libpthread.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6C9B801AFC712700B017AF /* libpthread.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +182,7 @@
 		6DFD45A31AF7B59C00DD2E01 = {
 			isa = PBXGroup;
 			children = (
+				6D6C9B7F1AFC712700B017AF /* libpthread.dylib */,
 				6D3661941AF7B5D600629175 /* src */,
 				6D3661BF1AF7B70800629175 /* libP2P */,
 				6D3661BE1AF7B70800629175 /* Products */,
@@ -276,6 +280,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_VARIANTS = normal;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -329,6 +334,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_VARIANTS = normal;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -394,6 +400,7 @@
 				6D3661C81AF7B70800629175 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6DFD45A71AF7B59C00DD2E01 /* Build configuration list for PBXProject "libP2P" */ = {
 			isa = XCConfigurationList;

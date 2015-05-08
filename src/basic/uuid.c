@@ -32,8 +32,8 @@ void	P2P_uuid_generate( uint8_t *p_uuid, uint8_t *exp_str )
 ************************************************************/
 void	P2P_uuid_mac_expd( uint8_t *mac, uint8_t *exp_str )
 {
-	const int	mac_len		=	12;
-	const int	exp_len		=	16;
+	//const int	mac_len		=	12;
+	//const int	exp_len		=	16;
 
 	memcpy( exp_str, mac, 12 );
 
