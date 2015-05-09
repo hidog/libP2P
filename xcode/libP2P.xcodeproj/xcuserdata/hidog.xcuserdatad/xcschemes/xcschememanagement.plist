@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>libP2P.xcscheme</key>
+		<key>P2P.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,6 +12,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>6D1662181AFE63AE0072495E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6D3661BC1AF7B70800629175</key>
 		<dict>
 			<key>primary</key>

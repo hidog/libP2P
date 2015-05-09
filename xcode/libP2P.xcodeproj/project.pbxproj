@@ -7,26 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D3661C11AF7B70800629175 /* libP2P.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D3661C01AF7B70800629175 /* libP2P.h */; };
-		6D3661C31AF7B70800629175 /* libP2PPriv.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D3661C21AF7B70800629175 /* libP2PPriv.h */; };
-		6D3661C91AF7B77800629175 /* linklist.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661971AF7B60400629175 /* linklist.c */; };
-		6D3661CA1AF7B77800629175 /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661991AF7B60400629175 /* log.c */; };
-		6D3661CB1AF7B77800629175 /* tools.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D36619C1AF7B60400629175 /* tools.c */; };
-		6D3661CC1AF7B77800629175 /* uuid.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D36619E1AF7B60400629175 /* uuid.c */; };
-		6D3661CD1AF7B77800629175 /* data.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A01AF7B61F00629175 /* data.c */; };
-		6D3661CE1AF7B77800629175 /* libP2P.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A21AF7B61F00629175 /* libP2P.c */; };
-		6D3661CF1AF7B77800629175 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A41AF7B61F00629175 /* main.c */; };
-		6D3661D01AF7B77800629175 /* lan.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661B11AF7B68900629175 /* lan.c */; };
-		6D3661D11AF7B77800629175 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661B31AF7B69A00629175 /* server.c */; };
-		6D3661D21AF7B77800629175 /* session.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A51AF7B61F00629175 /* session.c */; };
-		6D3661D31AF7B77800629175 /* socket_control.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661B51AF7B6AD00629175 /* socket_control.c */; };
-		6D3661D41AF7B77800629175 /* socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661B71AF7B6AD00629175 /* socket.c */; };
-		6D3661D51AF7B77800629175 /* task.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A71AF7B61F00629175 /* task.c */; };
-		6D3661D61AF7B77800629175 /* thread.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A91AF7B61F00629175 /* thread.c */; };
-		6D6C9B801AFC712700B017AF /* libpthread.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6C9B7F1AFC712700B017AF /* libpthread.dylib */; };
+		6D1662241AFE63DF0072495E /* data.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A01AF7B61F00629175 /* data.c */; };
+		6D1662251AFE63DF0072495E /* libP2P.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A21AF7B61F00629175 /* libP2P.c */; };
+		6D1662261AFE63DF0072495E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A41AF7B61F00629175 /* main.c */; };
+		6D1662271AFE63DF0072495E /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661B31AF7B69A00629175 /* server.c */; };
+		6D1662281AFE63DF0072495E /* session.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A51AF7B61F00629175 /* session.c */; };
+		6D1662291AFE63DF0072495E /* task.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A71AF7B61F00629175 /* task.c */; };
+		6D16622A1AFE63DF0072495E /* thread.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A91AF7B61F00629175 /* thread.c */; };
+		6D16622C1AFE64500072495E /* linklist.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661971AF7B60400629175 /* linklist.c */; };
+		6D16622D1AFE64500072495E /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661991AF7B60400629175 /* log.c */; };
+		6D16622E1AFE64500072495E /* tools.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D36619C1AF7B60400629175 /* tools.c */; };
+		6D16622F1AFE64500072495E /* uuid.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D36619E1AF7B60400629175 /* uuid.c */; };
+		6D1662301AFE64500072495E /* lan.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661B11AF7B68900629175 /* lan.c */; };
+		6D1662311AFE64500072495E /* socket_control.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661B51AF7B6AD00629175 /* socket_control.c */; };
+		6D1662321AFE64500072495E /* socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661B71AF7B6AD00629175 /* socket.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D1662191AFE63AE0072495E /* libP2P.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libP2P.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D3661961AF7B60400629175 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = config.h; path = ../src/basic/config.h; sourceTree = "<group>"; };
 		6D3661971AF7B60400629175 /* linklist.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = linklist.c; path = ../src/basic/linklist.c; sourceTree = "<group>"; };
 		6D3661981AF7B60400629175 /* linklist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = linklist.h; path = ../src/basic/linklist.h; sourceTree = "<group>"; };
@@ -57,19 +55,13 @@
 		6D3661B61AF7B6AD00629175 /* socket_control.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = socket_control.h; path = ../src/socket/socket_control.h; sourceTree = "<group>"; };
 		6D3661B71AF7B6AD00629175 /* socket.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = socket.c; path = ../src/socket/socket.c; sourceTree = "<group>"; };
 		6D3661B81AF7B6AD00629175 /* socket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = socket.h; path = ../src/socket/socket.h; sourceTree = "<group>"; };
-		6D3661BD1AF7B70800629175 /* liblibP2P.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = liblibP2P.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D3661C01AF7B70800629175 /* libP2P.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libP2P.h; sourceTree = "<group>"; };
-		6D3661C21AF7B70800629175 /* libP2PPriv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libP2PPriv.h; sourceTree = "<group>"; };
-		6D3661C41AF7B70800629175 /* libP2P.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = libP2P.cp; sourceTree = "<group>"; };
-		6D6C9B7F1AFC712700B017AF /* libpthread.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpthread.dylib; path = usr/lib/libpthread.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6D3661BA1AF7B70800629175 /* Frameworks */ = {
+		6D1662161AFE63AE0072495E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D6C9B801AFC712700B017AF /* libpthread.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,27 +156,15 @@
 		6D3661BE1AF7B70800629175 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6D3661BD1AF7B70800629175 /* liblibP2P.dylib */,
+				6D1662191AFE63AE0072495E /* libP2P.dylib */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		6D3661BF1AF7B70800629175 /* libP2P */ = {
-			isa = PBXGroup;
-			children = (
-				6D3661C01AF7B70800629175 /* libP2P.h */,
-				6D3661C21AF7B70800629175 /* libP2PPriv.h */,
-				6D3661C41AF7B70800629175 /* libP2P.cp */,
-			);
-			path = libP2P;
 			sourceTree = "<group>";
 		};
 		6DFD45A31AF7B59C00DD2E01 = {
 			isa = PBXGroup;
 			children = (
-				6D6C9B7F1AFC712700B017AF /* libpthread.dylib */,
 				6D3661941AF7B5D600629175 /* src */,
-				6D3661BF1AF7B70800629175 /* libP2P */,
 				6D3661BE1AF7B70800629175 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -192,33 +172,31 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6D3661BB1AF7B70800629175 /* Headers */ = {
+		6D1662171AFE63AE0072495E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D3661C31AF7B70800629175 /* libP2PPriv.h in Headers */,
-				6D3661C11AF7B70800629175 /* libP2P.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		6D3661BC1AF7B70800629175 /* libP2P */ = {
+		6D1662181AFE63AE0072495E /* P2P */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6D3661C61AF7B70800629175 /* Build configuration list for PBXNativeTarget "libP2P" */;
+			buildConfigurationList = 6D1662211AFE63AF0072495E /* Build configuration list for PBXNativeTarget "P2P" */;
 			buildPhases = (
-				6D3661B91AF7B70800629175 /* Sources */,
-				6D3661BA1AF7B70800629175 /* Frameworks */,
-				6D3661BB1AF7B70800629175 /* Headers */,
+				6D1662151AFE63AE0072495E /* Sources */,
+				6D1662161AFE63AE0072495E /* Frameworks */,
+				6D1662171AFE63AE0072495E /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = libP2P;
-			productName = libP2P;
-			productReference = 6D3661BD1AF7B70800629175 /* liblibP2P.dylib */;
+			name = P2P;
+			productName = P2P;
+			productReference = 6D1662191AFE63AE0072495E /* libP2P.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -229,7 +207,7 @@
 			attributes = {
 				LastUpgradeCheck = 0630;
 				TargetAttributes = {
-					6D3661BC1AF7B70800629175 = {
+					6D1662181AFE63AE0072495E = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
 				};
@@ -246,41 +224,40 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6D3661BC1AF7B70800629175 /* libP2P */,
+				6D1662181AFE63AE0072495E /* P2P */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6D3661B91AF7B70800629175 /* Sources */ = {
+		6D1662151AFE63AE0072495E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D3661C91AF7B77800629175 /* linklist.c in Sources */,
-				6D3661CA1AF7B77800629175 /* log.c in Sources */,
-				6D3661CB1AF7B77800629175 /* tools.c in Sources */,
-				6D3661CC1AF7B77800629175 /* uuid.c in Sources */,
-				6D3661CD1AF7B77800629175 /* data.c in Sources */,
-				6D3661CE1AF7B77800629175 /* libP2P.c in Sources */,
-				6D3661CF1AF7B77800629175 /* main.c in Sources */,
-				6D3661D01AF7B77800629175 /* lan.c in Sources */,
-				6D3661D11AF7B77800629175 /* server.c in Sources */,
-				6D3661D21AF7B77800629175 /* session.c in Sources */,
-				6D3661D31AF7B77800629175 /* socket_control.c in Sources */,
-				6D3661D41AF7B77800629175 /* socket.c in Sources */,
-				6D3661D51AF7B77800629175 /* task.c in Sources */,
-				6D3661D61AF7B77800629175 /* thread.c in Sources */,
+				6D16622C1AFE64500072495E /* linklist.c in Sources */,
+				6D16622D1AFE64500072495E /* log.c in Sources */,
+				6D16622E1AFE64500072495E /* tools.c in Sources */,
+				6D16622F1AFE64500072495E /* uuid.c in Sources */,
+				6D1662301AFE64500072495E /* lan.c in Sources */,
+				6D1662311AFE64500072495E /* socket_control.c in Sources */,
+				6D1662321AFE64500072495E /* socket.c in Sources */,
+				6D1662241AFE63DF0072495E /* data.c in Sources */,
+				6D1662251AFE63DF0072495E /* libP2P.c in Sources */,
+				6D1662261AFE63DF0072495E /* main.c in Sources */,
+				6D1662271AFE63DF0072495E /* server.c in Sources */,
+				6D1662281AFE63DF0072495E /* session.c in Sources */,
+				6D1662291AFE63DF0072495E /* task.c in Sources */,
+				6D16622A1AFE63DF0072495E /* thread.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		6D3661C71AF7B70800629175 /* Debug */ = {
+		6D1662221AFE63AF0072495E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUILD_VARIANTS = normal;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -320,7 +297,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					../src/,
+					../src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -330,11 +307,10 @@
 			};
 			name = Debug;
 		};
-		6D3661C81AF7B70800629175 /* Release */ = {
+		6D1662231AFE63AF0072495E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUILD_VARIANTS = normal;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -369,7 +345,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					../src/,
+					../src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -393,14 +369,13 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6D3661C61AF7B70800629175 /* Build configuration list for PBXNativeTarget "libP2P" */ = {
+		6D1662211AFE63AF0072495E /* Build configuration list for PBXNativeTarget "P2P" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6D3661C71AF7B70800629175 /* Debug */,
-				6D3661C81AF7B70800629175 /* Release */,
+				6D1662221AFE63AF0072495E /* Debug */,
+				6D1662231AFE63AF0072495E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		6DFD45A71AF7B59C00DD2E01 /* Build configuration list for PBXProject "libP2P" */ = {
 			isa = XCConfigurationList;
