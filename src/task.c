@@ -58,7 +58,8 @@ int		P2P_task_start()
 #ifdef _WIN32
 	P2P_thread_create( NULL, 0, P2P_task_main, NULL, 0, NULL );
 #else
-    P2P_thread_create( NULL, NULL, P2P_task_main, NULL );
+    assert(0);
+    //P2P_thread_create( NULL, NULL, P2P_task_main, NULL );
 #endif
     
 	return	P2P_OK;
@@ -83,7 +84,7 @@ int		P2P_task_free()
 /***********************************************************
 	P2P_free_task
 ************************************************************/
-int		P2P_task_add( int sid, int round, P2P_clock_t time_interval )
+int		P2P_task_add( int sid, TASK_TYPE_e type, int round, P2P_clock_t time_interval )
 {
 	LLTask_s	task_data;
 

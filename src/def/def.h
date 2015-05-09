@@ -17,10 +17,10 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ task ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //
-enum TASK_TYPE
+typedef enum TASK_TYPE
 {
 	TASK_LAN_SEARCH,
-};
+} TASK_TYPE_e;
 
 //
 typedef struct LLTask
@@ -28,7 +28,7 @@ typedef struct LLTask
 	int		sid;
 	int		round;
 	P2P_clock_t	time_interval;
-	TASK_TYPE	task_type;
+	TASK_TYPE_e	task_type;
 
 } LLTask_s;
 
