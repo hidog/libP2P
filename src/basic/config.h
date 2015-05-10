@@ -29,7 +29,7 @@ typedef int		bool;
 
 // socket
 #ifdef _WIN32
-#i  nclude <WinSock2.h>
+#include <WinSock2.h>
 #   include <iphlpapi.h>   //For SendARP
 #   include <ws2tcpip.h>
 //#include <windows.h>
