@@ -21,6 +21,7 @@
 		6D1662301AFE64500072495E /* lan.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661B11AF7B68900629175 /* lan.c */; };
 		6D1662311AFE64500072495E /* socket_control.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661B51AF7B6AD00629175 /* socket_control.c */; };
 		6D1662321AFE64500072495E /* socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661B71AF7B6AD00629175 /* socket.c */; };
+		6D2CE4291AFF899B00B7342A /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB7B8321AFF70A20080C9BF /* libgtest.a */; };
 		6DDB5CB31AFF1710005E79D5 /* gtest_linklist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB5CB01AFF1710005E79D5 /* gtest_linklist.cpp */; };
 		6DDB5CB41AFF1710005E79D5 /* gtest_thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB5CB11AFF1710005E79D5 /* gtest_thread.cpp */; };
 		6DDB5CBA1AFF17BD005E79D5 /* data.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661A01AF7B61F00629175 /* data.c */; };
@@ -37,13 +38,6 @@
 		6DDB5CC61AFF17F7005E79D5 /* lan.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D3661B11AF7B68900629175 /* lan.c */; };
 		6DDB5CC71AFF1809005E79D5 /* uuid.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D36619E1AF7B60400629175 /* uuid.c */; };
 		6DDB5CC91AFF187C005E79D5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB5CC81AFF187C005E79D5 /* main.cpp */; };
-		6DF33A481AFF1A03006F4D65 /* gtest-death-test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DF33A401AFF1A03006F4D65 /* gtest-death-test.cpp */; };
-		6DF33A491AFF1A03006F4D65 /* gtest-filepath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DF33A411AFF1A03006F4D65 /* gtest-filepath.cpp */; };
-		6DF33A4A1AFF1A03006F4D65 /* gtest-port.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DF33A431AFF1A03006F4D65 /* gtest-port.cpp */; };
-		6DF33A4B1AFF1A03006F4D65 /* gtest-printers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DF33A441AFF1A03006F4D65 /* gtest-printers.cpp */; };
-		6DF33A4C1AFF1A03006F4D65 /* gtest-test-part.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DF33A451AFF1A03006F4D65 /* gtest-test-part.cpp */; };
-		6DF33A4D1AFF1A03006F4D65 /* gtest-typed-test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DF33A461AFF1A03006F4D65 /* gtest-typed-test.cpp */; };
-		6DF33A4E1AFF1A03006F4D65 /* gtest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DF33A471AFF1A03006F4D65 /* gtest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,17 +84,11 @@
 		6D3661B61AF7B6AD00629175 /* socket_control.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = socket_control.h; path = ../src/socket/socket_control.h; sourceTree = "<group>"; };
 		6D3661B71AF7B6AD00629175 /* socket.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = socket.c; path = ../src/socket/socket.c; sourceTree = "<group>"; };
 		6D3661B81AF7B6AD00629175 /* socket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = socket.h; path = ../src/socket/socket.h; sourceTree = "<group>"; };
+		6DB7B8321AFF70A20080C9BF /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = ../gtest/xcode/libgtest.a; sourceTree = "<group>"; };
 		6DDB5C701AFF163D005E79D5 /* gtest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gtest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DDB5CB01AFF1710005E79D5 /* gtest_linklist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gtest_linklist.cpp; path = ../../gtest/gtest_linklist.cpp; sourceTree = "<group>"; };
 		6DDB5CB11AFF1710005E79D5 /* gtest_thread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gtest_thread.cpp; path = ../../gtest/gtest_thread.cpp; sourceTree = "<group>"; };
 		6DDB5CC81AFF187C005E79D5 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		6DF33A401AFF1A03006F4D65 /* gtest-death-test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gtest-death-test.cpp"; sourceTree = "<group>"; };
-		6DF33A411AFF1A03006F4D65 /* gtest-filepath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gtest-filepath.cpp"; sourceTree = "<group>"; };
-		6DF33A431AFF1A03006F4D65 /* gtest-port.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gtest-port.cpp"; sourceTree = "<group>"; };
-		6DF33A441AFF1A03006F4D65 /* gtest-printers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gtest-printers.cpp"; sourceTree = "<group>"; };
-		6DF33A451AFF1A03006F4D65 /* gtest-test-part.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gtest-test-part.cpp"; sourceTree = "<group>"; };
-		6DF33A461AFF1A03006F4D65 /* gtest-typed-test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gtest-typed-test.cpp"; sourceTree = "<group>"; };
-		6DF33A471AFF1A03006F4D65 /* gtest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gtest.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D2CE4291AFF899B00B7342A /* libgtest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +207,6 @@
 		6DDB5C711AFF163D005E79D5 /* gtest */ = {
 			isa = PBXGroup;
 			children = (
-				6DF33A3F1AFF1A03006F4D65 /* src */,
 				6DDB5CB01AFF1710005E79D5 /* gtest_linklist.cpp */,
 				6DDB5CC81AFF187C005E79D5 /* main.cpp */,
 				6DDB5CB11AFF1710005E79D5 /* gtest_thread.cpp */,
@@ -226,23 +214,10 @@
 			path = gtest;
 			sourceTree = "<group>";
 		};
-		6DF33A3F1AFF1A03006F4D65 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				6DF33A401AFF1A03006F4D65 /* gtest-death-test.cpp */,
-				6DF33A411AFF1A03006F4D65 /* gtest-filepath.cpp */,
-				6DF33A431AFF1A03006F4D65 /* gtest-port.cpp */,
-				6DF33A441AFF1A03006F4D65 /* gtest-printers.cpp */,
-				6DF33A451AFF1A03006F4D65 /* gtest-test-part.cpp */,
-				6DF33A461AFF1A03006F4D65 /* gtest-typed-test.cpp */,
-				6DF33A471AFF1A03006F4D65 /* gtest.cpp */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		6DFD45A31AF7B59C00DD2E01 = {
 			isa = PBXGroup;
 			children = (
+				6DB7B8321AFF70A20080C9BF /* libgtest.a */,
 				6D3661941AF7B5D600629175 /* src */,
 				6DDB5C711AFF163D005E79D5 /* gtest */,
 				6D3661BE1AF7B70800629175 /* Products */,
@@ -358,22 +333,15 @@
 			files = (
 				6DDB5CC71AFF1809005E79D5 /* uuid.c in Sources */,
 				6DDB5CC61AFF17F7005E79D5 /* lan.c in Sources */,
-				6DF33A491AFF1A03006F4D65 /* gtest-filepath.cpp in Sources */,
 				6DDB5CC51AFF17EC005E79D5 /* log.c in Sources */,
-				6DF33A4C1AFF1A03006F4D65 /* gtest-test-part.cpp in Sources */,
 				6DDB5CC41AFF17E4005E79D5 /* tools.c in Sources */,
 				6DDB5CC31AFF17D1005E79D5 /* linklist.c in Sources */,
-				6DF33A4A1AFF1A03006F4D65 /* gtest-port.cpp in Sources */,
 				6DDB5CBA1AFF17BD005E79D5 /* data.c in Sources */,
-				6DF33A4E1AFF1A03006F4D65 /* gtest.cpp in Sources */,
 				6DDB5CBB1AFF17BD005E79D5 /* libP2P.c in Sources */,
 				6DDB5CC91AFF187C005E79D5 /* main.cpp in Sources */,
 				6DDB5CBD1AFF17BD005E79D5 /* server.c in Sources */,
 				6DDB5CBE1AFF17BD005E79D5 /* session.c in Sources */,
-				6DF33A481AFF1A03006F4D65 /* gtest-death-test.cpp in Sources */,
 				6DDB5CBF1AFF17BD005E79D5 /* socket_control.c in Sources */,
-				6DF33A4B1AFF1A03006F4D65 /* gtest-printers.cpp in Sources */,
-				6DF33A4D1AFF1A03006F4D65 /* gtest-typed-test.cpp in Sources */,
 				6DDB5CC01AFF17BD005E79D5 /* socket.c in Sources */,
 				6DDB5CC11AFF17BD005E79D5 /* task.c in Sources */,
 				6DDB5CC21AFF17BD005E79D5 /* thread.c in Sources */,
@@ -512,6 +480,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					"GTEST_USE_OWN_TR1_TUPLE=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -524,13 +493,17 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../src,
+					../gtest/include,
 					../gtest,
-					./gtest/include,
-					./gtest/,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/hidog/code/libP2P/gtest/xcode,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -569,12 +542,16 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../src,
+					../gtest/include,
 					../gtest,
-					./gtest/include,
-					./gtest/,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/hidog/code/libP2P/gtest/xcode,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
