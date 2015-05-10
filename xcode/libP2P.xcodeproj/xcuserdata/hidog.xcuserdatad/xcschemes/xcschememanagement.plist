@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>gtest.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -17,7 +22,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6D1662361AFE64D80072495E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6D3661BC1AF7B70800629175</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6DB7138C1AFF0F2F00283451</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6DDB5C6F1AFF163D005E79D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
